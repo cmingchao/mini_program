@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/mainEntrance/index/index",
+    "pages/mainEntrance/taking/taking",
+    "pages/mainEntrance/complete/complete",
+    "pages/mainEntrance/sending/sending",
+    "pages/mainEntrance/details/details",
+    "pages/mainEntrance/cancel/cancel"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "免提袋顾客端",
+    "navigationBarTextStyle": "black"
+  }
+}

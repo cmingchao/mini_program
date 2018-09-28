@@ -1,0 +1,58 @@
+/**app.wxss**/
+ @import '/pages/mainEntrance/template/template.wxss';
+button {
+  margin: 0;
+  padding: 10rpx 20rpx;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.red{
+  color: #ff0000 !important;
+}
+.color-gray{
+  color: #999;
+}
+.color-lightblue{
+  color: #5CA8F3 !important;
+}
+.color-black{
+  color: #000 !important;
+}
+.font-small{
+  font-size: 24rpx;
+}
+.font-middle{
+  font-size: 28rpx;
+}
+.font-large{
+  font-size: 32rpx;
+}
+.font-larger{
+  font-size: 40rpx;
+}
+.font-bold{
+  font-weight: bold;
+}
+.text-left{
+  text-align: left;
+}
+.text-center{
+  text-align: center;
+}
+.text-right{
+  text-align: right;
+}
+#box {
+  background-color: #f2f2f2;
+}
+#box.bgwhite{
+  background-color: #fff;
+}
+.content{
+  padding: 1rpx 30rpx 160rpx;
+}
+.noData{
+  text-align: center;
+  margin-top: 30rpx;
+}

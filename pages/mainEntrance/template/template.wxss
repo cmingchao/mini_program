@@ -1,0 +1,120 @@
+/* pages/mainEntrance/template/template.wxss */
+
+/* 订单 */
+
+.order-box {
+  margin-top: 20rpx;
+}
+
+.order-item {
+  border-radius: 12rpx 12rpx 0 0;
+  background-color: #fff;
+  margin-bottom: 4rpx;
+  padding: 20rpx 30rpx;
+}
+
+.order-item .order-index {
+  color: #ffb30f;
+  font-size: 28rpx;
+  border-bottom:1px solid #FAFAFA;
+  display: flex;
+ 
+  justify-content: space-between;
+}
+
+.order-item .brand-orderNum {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #999;
+  margin-top: 20rpx;
+  font-size: 24rpx;
+}
+
+.order-item .brand-orderNum .brand-info {
+  display: inline-flex;
+  align-items: center;
+}
+
+.order-item .brand-orderNum .brand-info .brand-logo {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.order-item .brand-orderNum .brand-info .brand-name {
+  margin-left: 10rpx;
+}
+
+.order-item .order-info {
+  margin-top: 10rpx;
+  font-size: 28rpx;
+}
+
+.order-item .order-info text {
+  margin-right: 8rpx;
+}
+
+.order-item .order-info .num {
+  font-size: 24rpx;
+}
+
+.order-item+.btn {
+  background-color: #fff;
+  padding: 20rpx 30rpx;
+  min-height: 30rpx;
+  border-radius:0 0 12rpx 12rpx;
+}
+.order-item+.btn .complete {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.order-item+.btn navigator,
+.order-item+.btn button
+ {
+   font-size: 26rpx;
+   margin-left: 20rpx;
+}
+.order-item+.btn button{
+  padding: 0;
+  border: none;
+}
+.order-item+.btn .sending .remark {
+  font-size: 24rpx;
+  color:#999;
+}
+.order-item+.btn .sending .btn {
+  display: flex;
+  justify-content: flex-end;
+}
+.order-item+.btn .sending .btn button{
+  height:50rpx;
+  border: none;
+  font-size: 30rpx;
+  padding: 0;
+}
+
+/* 底部导航 */
+.bottomTabBar{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  padding: 0 80rpx;
+  background-color: #fff;
+  box-shadow: 0 6rpx 8rpx 10rpx #ddd;
+  box-sizing: border-box;
+}
+.bottomTabBar .btn{
+   width: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+}
+.bottomTabBar .btn navigator{
+  font-size: 30rpx;
+}

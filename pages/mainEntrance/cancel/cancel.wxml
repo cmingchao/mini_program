@@ -1,0 +1,66 @@
+<import src="/pages/mainEntrance/template/template.wxml" />
+<view id='page'>
+  <view id='box' class="{{!list.length?'bgwhite':''}}">
+    <view class='content'>
+      <block wx:for="{{list}}" wx:key="{{index}}" wx:if="{{list.length}}">
+        <view class='order-wrap-item'>
+          <view class='order-info'>
+            <view class='status font-large text-center'>
+              <text>服务单号：</text>
+              <text class='color-black'>{{item.serveNumber}}</text>
+            </view>
+            <view class='info'>
+              <view>
+                <view>
+                  <text>送达时间：</text>
+                  <text>{{item.deliveryTime || '无'}}</text>
+                </view>
+                <view>
+                  <text>地址：</text>
+                  <text>{{item.addressName || '无'}}</text>
+                </view>
+                <view>
+                  <text>电话：</text>
+                  <text class='color-lightblue'>{{item.takeUserMobile || '无'}}</text>
+                </view>
+              </view>
+              <view>
+                <view>
+                  <text>当前状态：</text>
+                  <text class='color-lightblue' wx:if="{{item.serveStatus==1}}">待取货</text>
+                  <text class='color-lightblue' wx:elif="{{item.serveStatus==2}}">取货中</text>
+                  <text class='color-lightblue' wx:elif="{{item.serveStatus==3}}">取货完成</text>
+                  <text class='color-lightblue' wx:elif="{{item.serveStatus==4}}">待送货</text>
+                  <text class='color-lightblue' wx:elif="{{item.serveStatus==5}}">送货中</text>
+                  <text class='color-lightblue' wx:elif="{{item.serveStatus==6}}">送货完成</text>
+                  <text class='color-lightblue' wx:elif="{{item.serveStatus==7}}">已取消</text>
+                  <text class='color-lightblue' wx:elif="{{item.serveStatus==8}}">已自提</text>
+                  <text class='color-lightblue' wx:elif="{{item.serveStatus==9}}">超时失败</text>
+                </view>
+                <view>
+                  <text>取货员：</text>
+                  <text>{{item.takeUserName || '无'}}</text>
+                </view>
+                <!-- <view>
+                <text>服务单号：</text>
+                <text>{{item.serveNumber}}</text>
+              </view> -->
+              </view>
+            </view>
+            <image class='icon-emergency' src='/pages/images/icon-emergency.png' wx:if='{{item.gradeNum==1}}'></image>
+          </view>
+          <view>
+            <view class="reception font-small color-lightblue">
+              <text>{{item.deskName || '无'}}</text>
+            </view>
+            <template is='order-take' data="{{...item,currentPage}}" />
+          </view>
+        </view>
+      </block>
+      <view class='noData' wx:if="{{!list.length}}">
+        <text>暂无数据！</text>
+      </view>
+    </view>
+    <template is="bottomTabBar" data="{{currentPage}}" />
+  </view>
+</view>

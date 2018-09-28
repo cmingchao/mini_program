@@ -1,0 +1,104 @@
+<template name="order-take">
+  <view class="order-box">
+    <view class="order-item">
+      <view class="order-index">
+        <text wx:if='false'></text>
+        <text wx:if='false'></text>
+      </view>
+      <view class="brand-orderNum">
+        <view class="brand-info">
+          <image src="/pages/images/icon-storeLogo.png" class="brand-logo"></image>
+          <text class="brand-name">{{shopName || '无'}}</text>
+        </view>
+        <view class="order-num">
+          <text>服务单号：</text>
+          <text>{{serveNumber}}</text>
+        </view>
+      </view>
+      <view class="order-info">
+        <text>{{goodsDetail || '无'}}</text>
+      </view>
+    </view>
+    <view class="btn">
+      <view class='details' wx:if="{{currentPage==='details'}}"></view>
+      <view class='complete' wx:elif="{{currentPage==='complete'}}">
+        <navigator url='/pages/mainEntrance/details/details'>详情</navigator>
+        <navigator url='#' class='red' wx:if="{{status==='已完成'}}">投诉</navigator>
+      </view>
+      <view class='sending' wx:elif="{{currentPage==='taking' || currentPage==='sending'}}">
+        <view class='remark'>备注：{{remarks ||'无'}}</view>
+        <view class='btn'>
+          <button class='color-lightblue' plain='true' data-time="{{deliveryTime}}" data-address="{{addressName}}" data-phoneNumber='{{deskMobile}}' bindtap='change'>变更</button>
+        </view>
+      </view>
+      <view class='cancel color-gray font-middle' wx:elif="{{currentPage==='cancel'}}">
+        <view wx:if='{{cancelRecordTime}}'>取消时间：{{cancelRecordTime}}</view>
+        <view wx:if='{{cancelRecord}}'>取消原因：{{cancelRecord}}</view>
+        <view wx:if='{{cancelRemarks}}'>取消备注：{{cancelRemarks}}</view>
+      </view>
+    </view>
+  </view>
+</template>
+
+
+<template name="order-give">
+  <view class="order-box">
+    <view class="order-item" wx:for="{{item.serveInfoVos}}" wx:key="idx" wx:for-index="idx" wx:for-item="item2">
+      <view class="order-index">
+        <text>No.{{idx+1}}</text>
+        <text wx:if="{{item2.serveStatus==1}}">待取货</text>
+        <text wx:if="{{item2.serveStatus==2}}">取货中</text>
+        <text wx:if="{{item2.serveStatus==3}}">取货完成</text>
+        <text wx:if="{{item2.serveStatus==4}}">待送货</text>
+        <text wx:if="{{item2.serveStatus==5}}">送货中</text>
+        <text wx:if="{{item2.serveStatus==6}}">送货完成</text>
+        <text wx:if="{{item2.serveStatus==7}}">已取消</text>
+        <text wx:if="{{item2.serveStatus==8}}">已自提</text>
+        <text wx:if="{{item2.serveStatus==9}}">超时失败</text>
+      </view>
+      <view class="brand-orderNum">
+        <view class="brand-info">
+          <image src="/pages/images/icon-storeLogo.png" class="brand-logo"></image>
+          <text class="brand-name">{{item2.shopName || '无'}}</text>
+        </view>
+        <view class="order-num">
+          <text>服务单号：</text>
+          <text>{{item2.serveNumber}}</text>
+        </view>
+      </view>
+      <view class="order-info">
+        <text>{{item2.goodsDetail || '无'}}</text>
+      </view>
+    </view>
+    <view class="btn">
+      <view class='details' wx:if="{{currentPage==='details'}}"></view>
+      <view class='complete' wx:elif="{{currentPage==='complete'}}">
+        <navigator url="/pages/mainEntrance/details/details?wrapNumber={{item.wrapNumber}}">详情</navigator>
+        <button class='red' plain='true' bindtap='complaint' data-phoneNumber='{{item.deskMobile}}'>投诉</button>
+      </view>
+      <view class='sending' wx:elif="{{currentPage==='taking' || currentPage==='sending'}}">
+        <view class='remark'>备注：{{item.remarks ||'无'}}</view>
+        <view class='btn'>
+          <button class='color-lightblue' plain='true' data-time="{{item.deliveryTime}}" data-address="{{item.deliveryAddressName}}" data-phoneNumber='{{item.deskMobile}}' bindtap='change' wx:if="{{item.finishedStatus==0}}">变更</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<template name="bottomTabBar">
+  <view class='bottomTabBar'>
+    <view class='btn'>
+      <navigator open-type='redirect' url='/pages/mainEntrance/taking/taking' class="{{currentPage==='taking'?'red':''}}">取货中</navigator>
+    </view>
+    <view class='btn'>
+      <navigator open-type='redirect' url='/pages/mainEntrance/sending/sending' class="{{currentPage==='sending'?'red':''}}">送货中</navigator>
+    </view>
+    <view class='btn'>
+      <navigator open-type='redirect' url='/pages/mainEntrance/complete/complete' class="{{currentPage==='complete'?'red':''}}">已完成</navigator>
+    </view>
+    <view class='btn'>
+      <navigator open-type='redirect' url='/pages/mainEntrance/cancel/cancel' class="{{currentPage==='cancel'?'red':''}}">已取消</navigator>
+    </view>
+  </view>
+</template>

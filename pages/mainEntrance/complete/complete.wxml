@@ -1,0 +1,24 @@
+<import src="/pages/mainEntrance/template/template.wxml" />
+<view id='page'>
+  <view id='box' class="{{!list.length?'bgwhite':''}}">
+    <view class='content'>
+      <block wx:for="{{list}}" wx:key="{{index}}" wx:if="{{list.length}}">
+        <view>
+          <view class="status">
+            <text wx:if='{{item.finishedStatus==0}}'>未分配</text>
+            <text wx:if='{{item.finishedStatus==1}}'>送货中</text>
+            <text wx:elif='{{item.finishedStatus==2}}' class='red'>已完成</text>
+            <text wx:elif='{{item.finishedStatus==3}}' class='red'>已取消</text>
+            <text wx:elif='{{item.finishedStatus==4}}' class='red'>超时失败</text>
+            <text>贴袋码：{{item.bagCode}}</text>
+          </view>
+          <template is='order-give' data="{{item,currentPage}}" />
+        </view>
+      </block>
+      <view class='noData' wx:if="{{!list.length}}">
+        <text>暂无数据！</text>
+      </view>
+    </view>
+    <template is="bottomTabBar" data="{{currentPage}}" />
+  </view>
+</view>

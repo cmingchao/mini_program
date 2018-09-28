@@ -1,0 +1,50 @@
+.content .order-status {
+  border-radius: 12rpx;
+  background-color: #fff;
+  margin-bottom: 4rpx;
+  padding: 20rpx 30rpx;
+  font-size: 24rpx;
+  line-height: 1.8;
+  margin-top: 20rpx;
+}
+
+.content .order-status .status {
+  text-align: center;
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+
+.content .order-status view text:first-child {
+  color: #666;
+}
+
+.code {
+  padding: 20rpx 30rpx;
+  font-size: 24rpx;
+  border-radius: 12rpx;
+  background-color: #fff;
+  margin-bottom: 4rpx;
+  margin-top: 10rpx;
+  line-height: 1.8;
+}
+
+.code view {
+  display: flex;
+  align-items: center;
+}
+
+.code text:first-child {
+  color: #666;
+}
+
+.code button {
+  width: 70rpx;
+  height: 40rpx;
+  margin: 0 0 0 10rpx;
+  border-radius: 18rpx;
+  border: 1px solid #ffb30f;
+  color: #ffb30f;
+  font-size: 24rpx;
+  padding: 0;
+  /* line-height: 1.5; */
+}

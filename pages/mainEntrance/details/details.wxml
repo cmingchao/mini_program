@@ -1,0 +1,53 @@
+<import src="/pages/mainEntrance/template/template.wxml" />
+<view id="page">
+  <view id='box'>
+    <view class='content'>
+      <block wx:for="{{list}}" wx:key="{{index}}">
+        <view>
+          <view class='order-status'>
+            <view class='text-center font-large' wx:if="{{item.finishedStatus==0}}">未开始</view>
+            <view class='text-center font-large' wx:elif="{{item.finishedStatus==1}}">送货中</view>
+            <view class='text-center font-large' wx:elif="{{item.finishedStatus==2}}">已完成</view>
+            <view class='text-center font-large' wx:elif="{{item.finishedStatus==3}}">已取消</view>
+            <view class='text-center font-large' wx:elif="{{item.finishedStatus==4}}">超时失败</view>
+            <view>
+              <text>贴袋码：</text>
+              <text>{{item.bagCode || '无'}}</text>
+            </view>
+            <view>
+              <text>时间：</text>
+              <text>{{item.deliveryTime || '无'}}之前送达</text>
+            </view>
+            <view>
+              <text>地址：</text>
+              <text>{{item.deliveryAddressName || '无'}}</text>
+            </view>
+            <view wx:if="{{item.finishedStatus==3}}">
+              <text>取消原因：</text>
+              <text>{{item.cancelRecord || '无'}}</text>
+            </view>
+          </view>
+          <template is='order-give' data="{{item,currentPage}}" />
+          <view class="code">
+            <view>
+              <text>订单时间：</text>
+              <text>{{item.createTime || '无'}}</text>
+            </view>
+            <view wx:if="{{item.orderCompleteTime}}">
+              <text>完成时间：</text>
+              <text>{{item.orderCompleteTime}}之前送达</text>
+            </view>
+            <view wx:if="{{item.finishedStatus==2&&item.giveType==1}}">
+              <text>配送员：</text>
+              <text>{{item.deliveryUserName}} {{item.deliveryMobile}}</text>
+              <button plain='true' bindtap='callPhone' data-phoneNumber="{{item.deliveryMobile}}">联系</button>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view class='noData' wx:if="{{!list.length}}">
+        <text>暂无数据！</text>
+      </view>
+    </view>
+  </view>
+</view>

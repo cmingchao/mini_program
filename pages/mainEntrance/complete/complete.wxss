@@ -1,0 +1,18 @@
+.content .status {
+  height: 30px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+  padding: 0 30rpx;
+  position: relative;
+   color: #666;
+}
+
+.order-box{
+  margin-top: 0;
+}
+.order-item:nth-child(n+2){
+  border-radius: 0;
+}
