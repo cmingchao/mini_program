@@ -1,0 +1,50 @@
+<!--pages/mainEntrance/index/index.wxml-->
+<view id='page'>
+  <view id='box'>
+    <view class='btn-wrap'>
+      <button type='primary' class='scan-code' bindtap='scanCode'>扫码</button>
+    </view>
+    <view class='details'>
+      <view>
+        <text>设备逻辑：</text>
+        <text>{{result.sid}}</text>
+      </view>
+      <view>
+        <text>上传日期：</text>
+        <text>{{result.ts_date}}</text>
+      </view>
+      <view>
+        <text>应收总金额：</text>
+        <text>{{result.total_amount}}</text>
+      </view>
+      <view>
+        <text>实收总金额：</text>
+        <text> {{result.total_income}}</text>
+      </view>
+      <view>
+        <text>水单号：</text>
+        <text>{{result.receipt_no}} </text>
+      </view>
+      <view>
+        <text>会员号：</text>
+        <text>{{result.vip_member}}</text>
+      </view>
+      <view>
+        <text>开单日期：</text>
+        <text>{{result.receipt_date}}</text>
+      </view>
+      <view>
+        <text>开单时间：</text>
+        <text>{{result.receipt_time}}</text>
+      </view>
+      <view>
+        <text>水单类型：</text>
+        <text>{{result.receipt_type}}</text>
+      </view>
+      <view>
+        <text>付款方式： </text>
+        <text>{{result.payment}}</text>
+      </view>
+    </view>
+  </view>
+</view>

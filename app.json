@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "pages/mainEntrance/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "重庆IFS二维码数据验证",
+    "navigationBarTextStyle": "black"
+  }
+}

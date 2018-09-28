@@ -1,0 +1,18 @@
+/* pages/mainEntrance/index/index.wxss */
+
+#box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#box .btn-wrap{
+  margin: 40rpx 0 16rpx;
+  width: 90%;
+}
+#box .details{
+  width: 90%;
+}
+#box .details view text:first-child{
+  color: #999;
+}
