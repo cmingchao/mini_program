@@ -1,0 +1,105 @@
+
+/* 内容content开始*/
+
+/* 时间选择器 */
+.time {
+  background-color: #fff;
+  padding: 40rpx 30rpx;
+  color: #666;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+}
+
+.time picker {
+  height: 60rpx;
+  width: 300rpx;
+  line-height: 60rpx;
+  border: 1px solid #ffb30f;
+  border-radius: 6rpx;
+  padding: 0 10rpx;
+}
+
+.time picker .picker {
+  width: 270rpx;
+  display: inline-block;
+}
+
+.time picker image {
+  width: 30rpx;
+  height: 30rpx;
+  position: relative;
+  top: 6rpx;
+}
+.content .orderNum {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  padding: 10rpx 0 0 30rpx;
+   color: #666;
+}
+.content .status {
+  height: 30px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+  padding: 0 0 0 30rpx;
+  position: relative;
+   color: #666;
+}
+.content .status text.cancel{
+  color: #f00;
+}
+/* 完成状态下的模态框 */
+
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal .modal-content {
+  width: 90%;
+  background-color: #f2f2f2;
+  padding: 0rpx 20rpx 40rpx;
+  position: relative;
+}
+
+#modal .modal-content .statusLog {
+  margin-top: 30rpx;
+}
+
+#modal .modal-content .statusLog view {
+  color: #666;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+#modal .modal-content .statusLog text:first-child{
+  display: inline-flex;
+  width:250rpx;
+}
+#modal .modal-content .statusLog text:last-child {
+  margin-left: 30rpx;
+}
+#modal .modal-content .close{
+  position: absolute;
+  right: -16rpx;
+  top: -20rpx;
+}
+#modal .modal-content .close button{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  background-color: rgba(0,0,0,.6);
+  color: #fff;
+}

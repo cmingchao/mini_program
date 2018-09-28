@@ -1,0 +1,251 @@
+/* pages/web/template/template.wxss */
+/* 头部header开始 */
+
+.header {
+  background-color: #fff;
+  padding-bottom: 70rpx;
+}
+
+.header .bigTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80rpx 0 50rpx;
+  font-size: 48rpx;
+}
+
+.header .btnBox {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 60rpx;
+}
+
+.header .btnBox navigator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.5;
+}
+
+.header .btnBox navigator .num {
+  font-size: 48rpx;
+}
+
+.header .btnBox navigator .status {
+  color: #999;
+  font-size: 30rpx;
+}
+
+.header .btnBox navigator.color-red text {
+  color: inherit;
+}
+
+/* 头部header结束 */
+/* 等待状态的取送 */
+
+.wait-take-give-item {
+  border-radius: 12rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+
+.wait-take-give-item .status {
+  height: 30px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  color: #ff614c;
+  font-size: 24rpx;
+  padding: 0 20rpx 0 40rpx;
+  position: relative;
+}
+
+.wait-take-give-item .status text:last-child {
+  order: 1;
+}
+
+.wait-take-give-item .status .icon-emergency {
+  position: absolute;
+  left: -5rpx;
+  top: -20rpx;
+  width: 40rpx;
+  height: 60rpx;
+}
+
+.wait-take-give-item .take-give {
+  padding: 20rpx 30rpx;
+  background-color: #fafafa;
+}
+
+.wait-take-give-item .take-give view {
+  color: #000;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.wait-take-give-item .take-give view:last-child {
+  margin-bottom: 0;
+}
+
+.wait-take-give-item .take-give view text:first-child {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background-color: #ffe667;
+  font-size: 24rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+}
+
+.wait-take-give-item .take-give view text:last-child {
+  font-size: 28rpx;
+}
+
+.wait-take-give-item .normal {
+  height: 60rpx;
+}
+
+.wait-take-give-item .cancelReason, .wait-take-give-item .code {
+  padding: 20rpx 30rpx;
+  font-size: 24rpx;
+}
+
+.wait-take-give-item .code view {
+  display: flex;
+  align-items: center;
+}
+.wait-take-give-item .code view .phone {
+  margin-left: 10rpx;
+}
+.wait-take-give-item .cancelReason text:first-child,
+.wait-take-give-item .code text:first-child {
+  color: #666;
+}
+
+.wait-take-give-item .code button {
+  width: 70rpx;
+  height: 40rpx;
+  margin: 0 0 0 10rpx;
+  border-radius: 18rpx;
+  border: 1px solid #ffb30f;
+  color: #ffb30f;
+  font-size: 24rpx;
+  padding: 0;
+  line-height: 1.5;
+}
+/* 订单 */
+
+.order-box {
+  margin-top: 20rpx;
+}
+
+.order-item {
+  border-radius: 12rpx;
+  background-color: #fff;
+  margin-bottom: 4rpx;
+  padding: 20rpx 30rpx;
+}
+
+.order-item .order-index {
+  color: #ffb30f;
+  font-size: 28rpx;
+  border-bottom:1px solid #fafafa;
+}
+
+.order-item .brand-orderNum {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+  font-size: 24rpx;
+}
+
+.order-item .brand-orderNum .brand-info {
+  display: inline-flex;
+  align-items: center;
+}
+
+.order-item .brand-orderNum .brand-info .brand-logo {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.order-item .brand-orderNum .brand-info .brand-name {
+  margin-left: 10rpx;
+}
+
+.order-item .order-info {
+  margin-top: 10rpx;
+}
+
+.order-item .order-info text {
+  margin-right:10rpx;
+}
+
+.order-item+.more {
+  border-radius: 12rpx;
+  background-color: #fff;
+  padding: 20rpx 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80rpx;
+}
+
+.order-item+.more image {
+  width: 30rpx;
+  height: 16rpx;
+  position: relative;
+  top: 20rpx;
+}
+
+/* 完成状态的取送 */
+
+.complete-take-give-item {
+  border-radius: 12rpx;
+  background-color: #fff;
+}
+
+.complete-take-give-item .take-give {
+  padding: 20rpx 30rpx;
+}
+
+.complete-take-give-item .take-give view {
+  color: #000;
+  display: flex;
+  align-items: center;
+  margin-bottom: 4rpx;
+}
+
+.complete-take-give-item .take-give view:last-child {
+  margin-bottom: 0;
+}
+
+.complete-take-give-item .take-give view text:first-child {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background-color: #ffe667;
+  font-size: 24rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+}
+
+.complete-take-give-item .take-give view text:last-child {
+  font-size: 28rpx;
+}
+
+.complete-take-give-item .take-give view.btn {
+  flex-direction: row-reverse;
+}
+
+.complete-take-give-item .take-give view.btn button {
+  background-color: #ffb30f;
+  color: #fff;
+}

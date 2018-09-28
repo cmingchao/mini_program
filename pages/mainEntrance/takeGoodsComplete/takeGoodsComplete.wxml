@@ -1,0 +1,118 @@
+<!--pages/web/waitTakeGoods/waitTakeGoods.wxml-->
+<import src="/pages/mainEntrance/template/template.wxml" />
+<view id="page">
+  <view id="box">
+    <!-- 页头 -->
+    <template is="header" data="{{...headerData}}" />
+    <view class='time'>
+      <text>时间：</text>
+      <picker mode="date" value="{{date}}" start="startDate" end="endDate" bindchange="bindDateChange" bindcancel="clearDate">
+        <view class="picker">
+          {{date}}
+        </view>
+        <image src='/pages/images/icon-calendar.png'></image>
+      </picker>
+    </view>
+    <view wx:if="{{!arr.length}}" class='noData font-large color-gray'>暂无数据！</view>
+    <!-- 内容 -->
+    <view class="content" wx:else>
+      <block wx:for="{{arr}}" wx:key="{{index}}">
+        <view>
+          <view class='orderNum'>服务单：{{item.serveNumber}}</view>
+          <view class="status">
+            <text wx:if="{{item.serveStatus==1}}">待取货</text>
+            <text wx:elif="{{item.serveStatus==2}}">取货中</text>
+            <text wx:elif="{{item.serveStatus==3}}">取货完成</text>
+            <text wx:elif="{{item.serveStatus==4}}">待送货</text>
+            <text wx:elif="{{item.serveStatus==5}}">送货中</text>
+            <text wx:elif="{{item.serveStatus==6}}">送货完成</text>
+            <text wx:elif="{{item.serveStatus==7}}">已取消</text>
+            <text wx:elif="{{item.serveStatus==8}}">已自提</text>
+            <text wx:elif="{{item.serveStatus==9}}">超时失败</text>
+            <text wx:elif="{{item.finishedStatus==0}}">待送货</text>
+            <text wx:elif="{{item.finishedStatus==1}}">送货中</text>
+            <text wx:elif="{{item.finishedStatus==2}}">送货完成</text>
+            <text wx:if="{{item.giveType==1}}">{{item.deliveryTime}}之前送达</text>
+            <text wx:elif="{{item.giveType==2}}">用户自提</text>
+          </view>
+          <template is='complete-take-give-item' data="{{item}}" />
+        </view>
+      </block>
+    </view>
+  </view>
+  <!-- 模态框 -->
+  <view id='modal' wx:if="{{showModal}}">
+    <view class="modal-content">
+      <block wx:for="{{details}}" wx:key="index">
+        <view>
+          <view class="wait-take-give-item">
+            <view class="status">
+              <text wx:if="{{item.serveStatus==1}}">待取货</text>
+              <text wx:elif="{{item.serveStatus==2}}">取货中</text>
+              <text wx:elif="{{item.serveStatus==3}}">取货完成</text>
+              <text wx:elif="{{item.serveStatus==4}}">待送货</text>
+              <text wx:elif="{{item.serveStatus==5}}">送货中</text>
+              <text wx:elif="{{item.serveStatus==6}}">送货完成</text>
+              <text wx:elif="{{item.serveStatus==7}}">已取消</text>
+              <text wx:elif="{{item.serveStatus==8}}">已自提</text>
+              <text wx:elif="{{item.serveStatus==9}}">超时失败</text>
+              <text wx:elif="{{item.finishedStatus==0}}">待送货</text>
+              <text wx:elif="{{item.finishedStatus==1}}">送货中</text>
+              <text wx:elif="{{item.finishedStatus==2}}">送货完成</text>
+              <text wx:if="{{item.giveType==1}}">{{item.deliveryTime}}之前送达</text>
+              <text wx:elif="{{item.giveType==2}}">用户自提</text>
+              <image src="/pages/images/icon-emergency.png" class="icon-emergency" wx:if='{{false}}'></image>
+            </view>
+            <view class="take-give">
+              <view>
+                <text>取</text>
+                <text>{{item.shopName || '未知'}}</text>
+              </view>
+              <view>
+                <text>送</text>
+                <text>{{item.deskName}}</text>
+              </view>
+            </view>
+            <view class="normal"></view>
+          </view>
+          <view class="order-box">
+            <view class="order-item">
+              <view class="order-index font-middle" wx:if='{{false}}'>No.{{index+1}}</view>
+              <view class="brand-orderNum color-gray">
+                <view class="brand-info font-middle" wx:if='{{false}}'>
+                  <image src="/pages/images/icon-storeLogo.png" class="brand-logo"></image>
+                  <text class="brand-name">{{item.shopName || '无'}}</text>
+                </view>
+                <view class="order-num">
+                  <text>订单号：</text>
+                  <text>{{item.serveNumber}}</text>
+                </view>
+              </view>
+              <view class="order-info font-middle">
+                <text>{{item.goodsDetail}}</text>
+                <!-- <text class="code" wx:if="{{item.goodsCode}}">{{item.goodsCode}}</text>
+                <text class="num font-small">x{{item.purchaseNum || '1'}}</text> -->
+              </view>
+            </view>
+            <view class="more" wx:if="{{false}}">
+              <image src="/pages/images/icon-arrow.png"></image>
+            </view>
+          </view>
+          <view class='statusLog'>
+            <view wx:if="{{item.takeTime}}">
+              <text>{{item.takeTime}}</text>
+              <text>到店取货完成</text>
+            </view>
+            <view wx:if="{{item.takeSuccessTime}}">
+              <text>{{item.takeSuccessTime || ''}}</text>
+              <text>送至{{item.deskName}}完成</text>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view class='close'>
+        <button plain='true' bindtap='close'>×</button>
+      </view>
+    </view>
+  </view>
+</view>

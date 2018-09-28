@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/mainEntrance/index/index",
+    "pages/mainEntrance/takeGoodsComplete/takeGoodsComplete",
+    "pages/mainEntrance/waitGiveGoods/waitGiveGoods",
+    "pages/mainEntrance/waitTakeGoods/waitTakeGoods",
+    "pages/mainEntrance/giveGoodsComplete/giveGoodsComplete"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "免提袋送货端",
+    "navigationBarTextStyle": "black"
+  }
+}

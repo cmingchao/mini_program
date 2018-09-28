@@ -1,0 +1,21 @@
+<!--pages/web/waitTakeGoods/waitTakeGoods.wxml-->
+<import src="/pages/mainEntrance/template/template.wxml" />
+<view id="page">
+  <view id="box">
+    <!-- 页头 -->
+    <template is="header" data="{{...headerData}}" />
+    <view wx:if="{{!arr.length}}" class='noData font-large color-gray'>暂无数据！</view>
+    <!-- 内容 -->
+    <view class="content" wx:else>
+      <block wx:for="{{arr}}" wx:key="index">
+        <view>
+          <template is="wait-take-give-item" data="{{...item,flag}}" />
+          <template is="order" data="{{item}}" />
+          <view class="btn">
+            <button size="mini" hidden='{{item.serveStatus!=1}}' data-serveNumber="{{item.serveNumber}}" bindtap='completeTakeGoods'>到店取货完成</button>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

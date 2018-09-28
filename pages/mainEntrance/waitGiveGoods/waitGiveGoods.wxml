@@ -1,0 +1,35 @@
+<!--pages/web/waitTakeGoods/waitTakeGoods.wxml-->
+<import src="/pages/mainEntrance/template/template.wxml" />
+<view id="page">
+  <view id="box">
+    <template is="header" data="{{...headerData}}" />
+    <view wx:if="{{!arr.length}}" class='noData font-large color-gray'>暂无数据！</view>
+    <view class="content" wx:else>
+      <block wx:for="{{arr}}" wx:key="index">
+        <view>
+          <template is="wait-take-give-item" data="{{...item,flag}}" />
+          <template is="order" data="{{...item}}" />
+          <view class="btn">
+            <button size="mini" wx:if='{{item.finishedStatus!=0}}' data-wrapNumber="{{item.wrapNumber}}" bindtap='completeGiveGoods'>完成送货</button>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view id="modal" wx:if="{{showModal}}">
+    <view class='modal-item'>
+      <view class="modal-title">输入提货码</view>
+      <view class="modal-content">
+        <input value='{{bagCode}}' placeholder='请输入提货码' type='number' bindinput='bindinput' maxlength='-1' focus placeholder-style="color:#999;font-size:26rpx;"></input>
+      </view>
+      <view class='modal-footer'>
+        <view>
+          <button class='comfirm' plain='true' bindtap='confirm'>确认</button>
+        </view>
+        <view>
+          <button class='cancel' plain='true' bindtap='cancel'>取消</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
