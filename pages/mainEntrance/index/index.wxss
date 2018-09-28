@@ -1,0 +1,63 @@
+/* pages/mainEntrance/index/index.wxss */
+
+#box {
+  background-color: #e9f4fe;
+}
+
+.login-box .logo {
+  height: 400rpx;
+  color: #fff;
+  font-size: 42rpx;
+  position: relative;
+}
+
+.login-box .logo image {
+  width: 100%;
+  height: 100%;
+}
+
+.login-box .logo text {
+  position: absolute;
+  left: 50%;
+  bottom: 70rpx;
+  transform: translateX(-50%);
+}
+
+.login-box form .form-item {
+  height: 160rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-top: 1px solid #e9f4fe;
+}
+
+.login-box form .form-item label {
+  display: flex;
+  align-items: center;
+}
+
+.login-box form .form-item label image {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.login-box form .form-item label input {
+  font-size: 30rpx;
+  padding-left: 50rpx;
+}
+
+.login-box form .btn-wrap {
+  margin-top: 170rpx;
+}
+
+.login-box form .btn-wrap button {
+  width: 600rpx;
+  height: 100rpx;
+  background-color: #61a4ff;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 50rpx;
+  font-size: 36rpx;
+}

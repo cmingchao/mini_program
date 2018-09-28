@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "招商",
+  "usingComponents": {
+    "ec-canvas": "../components/ec-canvas/ec-canvas"
+  }
+}

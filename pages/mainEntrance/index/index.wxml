@@ -1,0 +1,28 @@
+<!--pages/mainEntrance/index/index.wxml-->
+<view id='page'>
+  <view id='box'>
+    <view class='login-box'>
+      <view class='logo'>
+        <image src='/pages/images/bj@2x.png'></image>
+        <text>中冶置业BI系统</text>
+      </view>
+      <form bindsubmit='login'>
+        <view class='form-item'>
+          <label>
+            <image src='/pages/images/zhanghao@2x.png'></image>
+            <input placeholder='请输入您的账号' name='userName' value='{{userName}}' bindinput='getInputUserName'></input>
+          </label>
+        </view>
+        <view class='form-item'>
+          <label>
+            <image src='/pages/images/mima@2x.png'></image>
+            <input placeholder='请输入您的密码' name='password' value='{{password}}' type='password' bindinput='getInputPassword'></input>
+          </label>
+        </view>
+        <view class='btn-wrap'>
+          <button hover-class='none' form-type='submit'>登录</button>
+        </view>
+      </form>
+    </view>
+  </view>
+</view>

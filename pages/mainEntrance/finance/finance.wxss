@@ -1,0 +1,4 @@
+/* pages/mainEntrance/finance/finance.wxss */
+.canvas-item3{
+  height: 1200rpx;
+}

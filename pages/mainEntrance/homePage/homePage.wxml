@@ -1,0 +1,34 @@
+<!--pages/mainEntrance/homePage/homePage.wxml-->
+<view id='page'>
+  <view id='box'>
+    <view class='header'>
+      <view class='condition flex'>
+        <text class='time'>{{todayDate}}</text>
+        <text class='word'>全部项目</text>
+      </view>
+      <view class='project-status flex'>
+        <view>
+          <text class='number'>{{todaySale}}</text>
+          <text class='name'>今日销售</text>
+        </view>
+        <view>
+          <text class='number'>{{todayMonthIncome}}</text>
+          <text class='name'>本月收入</text>
+        </view>
+        <view>
+          <text class='number'>{{todayMonthSign}}</text>
+          <text class='name'>本月签约</text>
+        </view>
+      </view>
+    </view>
+    <view class='canvas-item'>
+      <ec-canvas ec="{{ ec1 }}" canvas-id='ec-canvas1' id='ec-canvas1'></ec-canvas>
+    </view>
+    <view class='canvas-item'>
+      <ec-canvas ec="{{ ec2 }}" canvas-id='ec-canvas2' id='ec-canvas2'></ec-canvas>
+    </view>
+    <view class='canvas-item'>
+      <ec-canvas ec="{{ ec3 }}" canvas-id='ec-canvas3' id='ec-canvas3'></ec-canvas>
+    </view>
+  </view>
+</view>

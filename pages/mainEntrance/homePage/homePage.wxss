@@ -1,0 +1,48 @@
+/* pages/mainEntrance/homePage/homePage.wxss */
+
+.header {
+  background-color: #fff;
+}
+
+.header .condition {
+  justify-content: center;
+  color: #999;
+  font-size: 28rpx;
+  padding: 20rpx 30rpx;
+  position: relative;
+}
+
+.header .condition .word {
+  position: absolute;
+  right: 30rpx;
+}
+.header .project-status{
+  margin-top: 10rpx;
+  padding-bottom: 30rpx;
+}
+.header .project-status view{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  border-right: 1px solid lightgray;
+}
+.header .project-status view:last-child{
+  border-right:none;
+}
+.header .project-status view .number{
+  font-size: 48rpx;
+  color:#5DB428;
+  font-weight: bold;
+}
+.header .project-status view:nth-child(2) .number{
+  color:#EFB52E;
+}
+.header .project-status view:last-child .number{
+  color:#6183FF;
+}
+.header .project-status view .name{
+  color:#999;
+  font-size: 24rpx;
+  margin-top: 4rpx;
+}

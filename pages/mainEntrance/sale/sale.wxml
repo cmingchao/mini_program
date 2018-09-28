@@ -1,0 +1,17 @@
+<!--pages/mainEntrance/sale/sale.wxml-->
+<view id='page'>
+  <view id='box'>
+    <view class='canvas-item'>
+      <ec-canvas ec="{{ ec1 }}" canvas-id='ec-canvas1' id='ec-canvas1'></ec-canvas>
+    </view>
+    <view class='canvas-item'>
+      <ec-canvas ec="{{ ec2 }}" canvas-id='ec-canvas2' id='ec-canvas2'></ec-canvas>
+    </view> 
+    <view class='canvas-item'>
+      <ec-canvas ec="{{ ec3 }}" canvas-id='ec-canvas3' id='ec-canvas3'></ec-canvas>
+    </view>
+    <view class='canvas-item'>
+      <ec-canvas ec="{{ ec4 }}" canvas-id='ec-canvas4' id='ec-canvas4'></ec-canvas>
+    </view>
+  </view>
+</view>

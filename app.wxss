@@ -1,0 +1,18 @@
+/**app.wxss**/
+.flex{
+  display: flex;
+}
+.input-placeholder{
+  color: #999;
+}
+#box{
+  background-color: #f2f2f2;
+  min-height: 100vh;
+}
+.canvas-item{
+  width: 100%;
+  height: 600rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+  padding: 20rpx 0;
+}

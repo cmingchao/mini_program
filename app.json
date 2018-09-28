@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/mainEntrance/index/index",
+    "pages/mainEntrance/homePage/homePage",
+    "pages/mainEntrance/finance/finance",
+    "pages/mainEntrance/sale/sale",
+    "pages/mainEntrance/invest/invest"
+    
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#61a4ff",
+    "navigationBarTitleText": "中冶置地BI系统",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#eeeeee"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#47BAFE",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/mainEntrance/homePage/homePage",
+        "text": "首页",
+        "iconPath": "/pages/images/shouye1@2x.png",
+        "selectedIconPath": "/pages/images/shouye2@2x.png"
+      },
+      {
+        "pagePath": "pages/mainEntrance/sale/sale",
+        "text": "销售",
+        "iconPath": "/pages/images/xiaoshou1@2x.png",
+        "selectedIconPath": "/pages/images/xiaoshou2@2x.png"
+      },
+      {
+        "pagePath": "pages/mainEntrance/invest/invest",
+        "text": "招商",
+        "iconPath": "pages/images/zhaoshang1@2x.png",
+        "selectedIconPath": "/pages/images/zhaoshang2@2x.png"
+      },
+      {
+        "pagePath": "pages/mainEntrance/finance/finance",
+        "text": "财务",
+        "iconPath": "/pages/images/caiwu1@2x.png",
+        "selectedIconPath": "/pages/images/caiwu2@2x.png"
+      }
+    ]
+  }
+}
