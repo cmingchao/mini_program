@@ -1,0 +1,75 @@
+#box {
+  padding-top: 1rpx;
+  padding-bottom: 1rpx;
+}
+
+.title {
+  margin-top: 30rpx;
+  padding: 0 30rpx;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
+}
+
+form .form-item {
+  display: flex;
+  align-items: center;
+  padding: 10rpx 30rpx;
+  font-size: 30rpx;
+  background-color: #fff;
+}
+
+form .form-item.border {
+  border-top: 1px solid rgba(213, 213, 213, 0.8);
+}
+
+form .form-item text {
+  width: 190rpx;
+  text-align: right;
+}
+
+form .form-item input, form .form-item picker, form .form-item textarea {
+  flex-grow: 1;
+  width: 500rpx;
+}
+
+form .form-item input {
+  position: relative;
+}
+
+form .form-item picker .picker {
+  height: 70rpx;
+  width: 90%;
+  display: inline-flex;
+  align-items: center;
+}
+
+form .form-item picker .arrow {
+  width: 20rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 15rpx;
+  right: 14rpx;
+  transform: rotate(90deg);
+}
+
+form .form-item:last-of-type {
+  padding-bottom: 60rpx;
+  align-items: flex-start;
+}
+
+form .btn-area {
+  padding: 0 30rpx;
+  margin-top: 40rpx;
+}
+
+form .btn-area button {
+  height: 90rpx;
+  background-color: #ffb30f;
+  color: #fff;
+  display: flex;
+  border-radius: 45rpx;
+}

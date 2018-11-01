@@ -1,0 +1,141 @@
+#box {
+  padding: 1rpx 30rpx 0rpx;
+}
+
+#box>view {
+  margin-top: 30rpx;
+  border-radius: 12rpx;
+  background-color: #fff;
+}
+
+.order-status {
+  padding: 20rpx 30rpx;
+  line-height: 1.8;
+}
+
+.order-status .status {
+  margin-bottom: 10rpx;
+}
+
+.order-status view text:first-child {
+  color: #666;
+}
+
+.order-wrap .order-item .order-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  padding: 0 30rpx;
+}
+
+.order-wrap .order-item .order-item-content {
+  border-top: 2rpx solid rgba(213, 213, 213, 0.8);
+  padding: 20rpx 30rpx;
+}
+
+.order-wrap .order-item .order-item-content .shop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-wrap .order-item .order-item-content .shop .shop-info {
+  display: inline-flex;
+  align-items: center;
+}
+
+.order-wrap .order-item .order-item-content .shop .shop-info .shop-logo {
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 10rpx;
+}
+
+.order-wrap .order-item .order-item-content .goods-info {
+  margin-top: 10rpx;
+  padding-left: 36rpx;
+}
+
+.order-wrap .order-item .order-item-footer {
+  border-top: 2rpx solid rgba(213, 213, 213, 0.8);
+  min-height: 40rpx;
+  padding: 20rpx 30rpx;
+  display: flex;
+  align-items: center;
+}
+.order-wrap .order-item .order-item-footer view text:first-child {
+  color: #666;
+}
+.code {
+  padding: 20rpx 30rpx;
+  line-height: 1.8;
+}
+
+.code view {
+  display: flex;
+  align-items: center;
+}
+
+.code view text:first-child {
+  color: #666;
+}
+
+.code button {
+  width: 70rpx;
+  height: 40rpx;
+  margin: 0 0 0 10rpx;
+  border-radius: 18rpx;
+  border: 1px solid #ffb30f;
+  color: #ffb30f;
+  font-size: 24rpx;
+  padding: 0;
+  /* line-height: 1.5; */
+}
+
+/* //////////////////////////////////////// */
+
+/*主容器*/
+
+.stepper {
+  width: 80px;
+  height: 26px;
+  /*给主容器设一个边框*/
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 0 auto;
+}
+
+/*加号和减号*/
+
+.stepper .obtn {
+  width: 19px !important;
+  line-height: 26px;
+  text-align: center !important;
+  float: left;
+}
+
+/*数值*/
+
+.stepper .onumber {
+  width: 40px !important;
+  height: 26px !important;
+  float: left;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 12px;
+  /*给中间的input设置左右边框即可*/
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+/*普通样式*/
+
+.stepper .normal {
+  color: black !important;
+}
+
+/*禁用样式*/
+
+.stepper .disabled {
+  color: #ccc !important;
+}

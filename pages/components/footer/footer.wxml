@@ -1,0 +1,4 @@
+<view class="footer bg-white">
+  <navigator class="navigator-item {{current=='addOrder'?'actived':''}}" hover-class="none" open-type="redirect" url="/pages/addOrder/addOrder">新增订单</navigator>
+  <navigator class="navigator-item navigator-item-2 {{current=='orderList'?'actived':''}}" hover-class="none" open-type="redirect" url="/pages/orderList/orderList">订单列表</navigator>
+</view>

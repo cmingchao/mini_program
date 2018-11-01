@@ -1,0 +1,83 @@
+<view id="page">
+  <view id='box'>
+    <view class='order-status'>
+      <view class='status text-center font-medium' wx:if='{{res.serveStatus===1}}'>待取货</view>
+      <view class='status text-center font-medium' wx:elif='{{res.serveStatus===2}}'>取货中</view>
+      <view class='status text-center font-medium' wx:elif='{{res.serveStatus===3}}'>取货完成</view>
+      <view class='status text-center font-medium' wx:elif='{{res.serveStatus===4}}'>待送货</view>
+      <view class='status text-center font-medium' wx:elif='{{res.serveStatus===5}}'>送货中</view>
+      <view class='status text-center font-medium' wx:elif='{{res.serveStatus===6}}'>送货完成</view>
+      <view class='status text-center font-medium' wx:elif='{{res.serveStatus===7}}'>已取消</view>
+      <view class='status text-center font-medium' wx:elif='{{res.serveStatus===8}}'>已自提</view>
+      <view class='status text-center font-medium' wx:else='{{res.serveStatus===9}}'>超时失败</view>
+      <view>
+        <text>贴袋码：</text>
+        <text>{{res.verCode || '---'}}</text>
+      </view>
+      <view wx:if='{{res.giveType===1}}'>
+        <text>时间：</text>
+        <text>{{res.deliveryTime}}之前送达</text>
+      </view>
+      <view wx:if='{{res.giveType===1}}'>
+        <text>地址：</text>
+        <text>{{res.addressName || '---'}}</text>
+      </view>
+      <view wx:if='{{res.cancelRecordUserName}}'>
+        <text>取消操作人：</text>
+        <text>{{res.cancelRecordUserName}}</text>
+      </view>
+      <view wx:if='{{res.cancelRecord}}'>
+        <text>取消原因：</text>
+        <text>{{res.cancelRecord}}</text>
+      </view>
+      <view wx:if='{{res.cancelRecordTime}}'>
+        <text>取消时间：</text>
+        <text>{{res.cancelRecordTime}}</text>
+      </view>
+      <view wx:if='{{res.cancelRemarks}}'>
+        <text>取消备注：</text>
+        <text>{{res.cancelRemarks}}</text>
+      </view>
+    </view>
+    <view class='order-wrap'>
+      <view class='order-item'>
+        <view class='order-item-header'>
+          <text class='index'>No.1</text>
+          <text></text>
+        </view>
+        <view class='order-item-content'>
+          <view class='shop'>
+            <view class='shop-info'>
+              <image class='shop-logo' src='/images/shopLogo.png'></image>
+              <text class='shop-name'>{{res.shopName}}</text>
+            </view>
+            <view class='order-number'>
+              <text>订单号：</text>
+              <text>{{res.serveNumber}}</text>
+            </view>
+          </view>
+          <view class='goods-info'>
+            <text>{{res.goodsDetail}}</text>
+          </view>
+        </view>
+        <view class='order-item-footer'>
+          <view wx:if='{{res.remarks}}'>
+            <text >备注：</text>
+            <text>{{res.remarks}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="code">
+      <view>
+        <text>订单时间：</text>
+        <text>{{res.createTime || '---'}}</text>
+      </view>
+      <view wx:if='{{res.takeUserName}}'>
+        <text>取货员：</text>
+        <text>{{res.takeUserName || '---'}}</text>
+        <button plain='true' bindtap='callPhone' data-phoneNumber="{{res.takeUserMobile}}">联系</button>
+      </view>
+    </view>
+  </view>
+</view>

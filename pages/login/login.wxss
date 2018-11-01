@@ -1,0 +1,51 @@
+#box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.header .logo{
+  width: 300rpx;
+  height: 260rpx;
+  font-size: 44rpx;
+}
+.header .name{
+  font-weight: bold;
+  margin-top: 10rpx;
+  font-size: 32rpx;
+}
+.form-wrap {
+  margin-top: 40rpx;
+  width: 100%;
+}
+
+.form-wrap form view{
+  width: 85%;
+  margin: 0 auto;
+}
+
+.form-wrap form input{
+  background-color: #f2f2f2;
+  border-radius: 12rpx;
+  margin-top: 10rpx;
+  height: 90rpx;
+  font-size: 36rpx;
+  border:1px solid #ccc;
+  padding-left: 10rpx;
+  box-sizing: border-box;
+}
+
+ .form-wrap form .login button{
+  height: 90rpx;
+   color: #fff;
+   font-size: 36rpx;
+   margin-top: 10rpx;
+   display: flex;
+ }

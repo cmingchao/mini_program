@@ -1,0 +1,220 @@
+.search{
+  padding: 0 30rpx;
+}
+.search-wrap {
+  position: relative;
+}
+
+.search-wrap input {
+  padding-left: 70rpx;
+  background-color: #edeced;
+}
+
+.search-wrap image {
+  position: absolute;
+  left: 26rpx;
+  top: 17rpx;
+  width: 36rpx;
+  height: 36rpx;
+}
+.search-wrap .drop-down {
+  position: absolute;
+  left: 0;
+  top: 77rpx;
+  width: 100%;
+  min-height: 80rpx;
+  z-index: 9998;
+  background-color: #ddd;
+  border-radius: 10rpx;
+  padding:20rpx 30rpx;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+.shortcutSet {
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.shortcutSet .shortcut {
+  background-color: #ffb30f;
+  color: #fff;
+}
+
+.shortcutSet .shortcut-4 {
+  background-color: #fff;
+  border: 1px solid #ffb30f;
+  color: #ffb30f;
+}
+
+.goods-wrap .goods-item {
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.goods-wrap .goods-item .goods-item-header {
+  padding: 20rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.goods-wrap .goods-item .goods-item-header .delete {
+  border: none;
+}
+
+.goods-wrap .goods-item .goods-item-header image {
+  width: 30rpx;
+  height: 36rpx;
+}
+
+.goods-wrap .goods-item .goods-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+}
+
+.goods-wrap .goods-item .goods-item-footer .number {
+  display: inline-flex;
+}
+.add{
+  margin-top: 150rpx;
+  padding: 0 30rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+.add button{
+  border: none;
+  height: auto;
+}
+.add image{
+  width: 90rpx;
+  height:90rpx;
+}
+.btn-wrap{
+  margin-top: 80rpx;
+  padding: 0 30rpx;
+}
+.btn-wrap button{
+  height: 90rpx;
+  background-color: #ffb30f;
+  border-radius: 45rpx;
+  width: 100%;
+  color: #fff;
+}
+/*对话框 */
+#dialog{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,.7);
+  z-index: 9999;
+}
+#dialog form{
+  width: 90%;
+}
+#dialog .modal-wrap{
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+#dialog .modal-header{
+  padding: 20rpx 0;
+  text-align: center;
+}
+#dialog .modal-content{
+  padding: 0 30rpx;
+  margin-top: 10rpx;
+}
+#dialog .modal-content .form-item{
+  display: flex;
+  align-items: center;
+  margin-top: 25rpx;
+
+}
+#dialog .modal-content .form-item text{
+  color: #999;
+  font-size: 30rpx;
+  width: 140rpx;
+}
+#dialog .modal-content .form-item:first-of-type input{
+  border: 2rpx solid rgba(213,213,213,.8);
+  border-radius: 10rpx;
+  padding-left: 10rpx;
+  flex-grow: 1;
+  height: 60rpx;
+  font-size: 28rpx;
+}
+#dialog .modal-footer{
+  display: flex;
+  border-top: 2rpx solid rgba(213,213,213,.8);
+  margin-top: 30rpx;
+}
+#dialog .modal-footer .btn{
+  flex-grow: 1;
+  height: 90rpx;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+#dialog .modal-footer .cancel{
+ border-right:2rpx solid rgba(213,213,213,.8);
+}
+#dialog .modal-footer .confirm{
+  color: #ffb30f;
+}
+/* ////////// */
+
+/*主容器*/
+.stepper {
+	width: 80px;
+	height: 26px;
+	/*给主容器设一个边框*/
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin:0 auto;
+}
+ 
+/*加号和减号*/
+.stepper .obtn {
+	width: 19px !important;
+	line-height: 26px;
+	text-align: center !important;
+	float: left;
+}
+ 
+/*数值*/
+.stepper .onumber {
+	width: 40px !important;
+	height: 26px !important;
+	float: left;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 12px;
+	/*给中间的input设置左右边框即可*/
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+  border-top: none;
+  border-bottom: none;
+  padding: 0;
+  border-radius: 0;
+}
+ 
+/*普通样式*/
+.stepper .normal{
+	color: black !important;
+}
+ 
+/*禁用样式*/
+.stepper .disabled{
+	color: #ccc !important;
+}

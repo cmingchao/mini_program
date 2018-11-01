@@ -1,0 +1,17 @@
+{
+  "pages": [
+    
+    "pages/login/login",
+    "pages/goodsDetails/goodsDetails",
+    "pages/orderDetails/orderDetails",
+    "pages/shortcutSet/shortcutSet",
+    "pages/addOrder/addOrder",
+    "pages/orderList/orderList"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "商户端",
+    "navigationBarTextStyle": "black"
+  }
+}

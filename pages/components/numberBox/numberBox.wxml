@@ -1,0 +1,9 @@
+<!-- 主容器 -->
+<view class="stepper">
+	<!-- 减号 -->
+	<text class="obtn {{minusStatus}}" bindtap="bindMinus">-</text>
+	<!-- 数值 -->
+	<input class='onumber' type="number" bindinput="bindManual" value="{{num}}" />
+	<!-- 加号 -->
+	<text class="obtn normal" bindtap="bindPlus">+</text>
+</view>

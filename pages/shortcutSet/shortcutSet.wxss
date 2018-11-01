@@ -1,0 +1,72 @@
+#box {
+  padding-top: 1rpx;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 120rpx;
+  margin-top: 30rpx;
+}
+
+form .form-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+  height: 80rpx;
+}
+
+form .form-item.border {
+  border-top: 1px solid #ddd;
+}
+
+form .form-item text {
+  font-size: 32rpx;
+}
+
+form .form-item input, form .form-item picker, form .form-item textarea {
+  margin-left: 10rpx;
+  border: 2rpx solid rgba(213,213,213,.8);
+   height: 70rpx;
+}
+form .form-item input:first-of-type{
+  width: 200rpx;
+}
+form .form-item input:last-of-type{
+  flex-grow: 1;
+}
+form .form-item picker {
+  position: relative;
+}
+
+form .form-item .picker {
+  height: 80rpx;
+  display: inline-flex;
+  align-items: center;
+}
+
+form .form-item picker .arrow {
+  width: 20rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 4rpx;
+}
+
+form .form-item textarea {
+  width: auto;
+  padding-top: 10rpx;
+}
+
+form .btn-wrap {
+  padding: 0 30rpx;
+  margin-top: 60rpx;
+}
+
+form .btn-wrap button {
+  height: 90rpx;
+  background-color: #ffb30f;
+  color: #fff;
+  display: flex;
+  border-radius: 45rpx;
+}

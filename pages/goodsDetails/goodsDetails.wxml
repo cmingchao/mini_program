@@ -1,0 +1,75 @@
+<view id='page'>
+  <view id='box'>
+    <view class='search bg-white'>
+      <view class='search-wrap'>
+        <input value='{{goodsName}}' placeholder='请输入商品名称' bindinput='handleInputGoodsName' bindconfirm='handleInputConfirmGoodsName'></input>
+        <image src='/images/search-yellow.png'></image>
+        <view class='drop-down' wx:if='{{showDropDown}}'>
+          <view bindtap='handleClickHistory' data-id='{{item.id}}' data-goodsName='{{item.goodsName}}' wx:for='{{historyRecordsList}}' wx:key='{{index}}'>{{item.goodsName}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='shortcutSet bg-white'>
+      <button class='shortcut' data-id='{{item.id}}' data-goodsName='{{item.goodsName}}' wx:for='{{shortCutList}}' wx:key='{{index}}' bindtap='handleShortcutAdd'>
+        {{item.shortcutKey}}
+      </button>
+      <button class='shortcut shortcut-4' bindtap='handleShortcutSet'>快捷键设置</button>
+    </view>
+    <view class='goods-wrap'>
+      <view class='goods-item' wx:for='{{goodsList}}' wx:key='{{index}}'>
+        <view class='goods-item-header'>
+          <text class='index'>商品{{index+1}}</text>
+          <button plain='true' class='delete' data-index='{{index}}' bindtap='handleDelete'>
+            <image src='/images/delete.png'></image>
+          </button>
+        </view>
+        <view class='goods-item-footer'>
+          <view class='goodsName'>{{item.goodsName}}</view>
+          <view class='number gray'>
+            <!-- 主容器 -->
+            <view class="stepper">
+              <!-- 减号 -->
+              <text class="obtn {{minusStatus}}" data-index='{{index}}' data-num='{{item.goodsNum}}' bindtap="bindMinus">-</text>
+              <!-- 数值 -->
+              <input class='onumber' type="number" data-index='{{index}}' bindinput="bindManual" value="{{item.goodsNum}}" />
+              <!-- 加号 -->
+              <text class="obtn normal" data-index='{{index}}' data-num='{{item.goodsNum}}' bindtap="bindPlus">+</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='noData text-center light-gray' wx:if='{{!goodsList.length}}'>请添加商品</view>
+    </view>
+    <view class='add'>
+      <button plain='true' bindtap='handleShowAddGoodsDialog'>
+        <image src='/images/add.png'></image>
+      </button>
+    </view>
+    <view class="btn-wrap">
+      <button bindtap='handleSubmit'>保存</button>
+    </view>
+  </view>
+  <view id='dialog' wx:if='{{showDialog}}'>
+    <form bindsubmit='handleAddGoods'>
+      <view class='modal-wrap'>
+        <view class='modal-header'>
+          <text>商品信息</text>
+        </view>
+        <view class='modal-content'>
+          <label class='form-item'>
+            <text>商品名称</text>
+            <input name='goodsName' placeholder='请输入商品名称' maxlength='15'></input>
+          </label>
+          <label class='form-item'>
+            <text>数量</text>
+            <numberBox class='numberBox' bind:myevent="handleMyEvent"></numberBox>
+          </label>
+        </view>
+        <view class='modal-footer'>
+          <button class='btn cancel' plain='true' bindtap='handleHideAddGoodsDialog'>取消</button>
+          <button class='btn confirm' plain='true' form-type='submit'>确定</button>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>

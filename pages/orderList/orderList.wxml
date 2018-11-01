@@ -1,0 +1,61 @@
+<view id='page'>
+  <view id='box'>
+    <view class='search-wrap bg-white'>
+      <input value='{{formData.search.serveNumber}}' placeholder='请输入服务单号' bindconfirm='handleSearch'></input>
+      <image src='/images/search-yellow.png'></image>
+    </view>
+    <view class='header bg-white'>
+      <button plain='true' class="{{num===1?'actived':''}}" bindtap='handleWaitGive'>待取货</button>
+      <button plain='true' class="{{num===2?'actived':''}}" bindtap='handleCanceled'>已取消</button>
+      <button plain='true' class="{{num===3?'actived':''}}" bindtap='handleAll'>全部订单</button>
+    </view>
+    <view class='order-wrap'>
+      <view class='order-item' wx:for='{{list}}' wx:key='{{item.serveNumber}}'>
+        <view class='order-item-header'>
+          <text class='number gray'>服务单号：{{item.serveNumber || '---'}}</text>
+          <text class='deliveryAddress light-gray' wx:if='{{item.giveType===1}}'>配送地点：{{item.addressName}}</text>
+          <text class='deliveryTime light-gray' wx:if='{{item.giveType===1}}'>配送时间：{{item.deliveryTime}}</text>
+        </view>
+        <view class='order-item-content'>
+          <view class='goodsName'>{{item.goodsDetail}}</view>
+          <view class='customInfo light-gray'>{{item.realName}} {{item.mobile || ''}} {{item.gradeName || ''}}</view>
+        </view>
+        <view class='order-item-footer'>
+          <view class='code'>取货码：{{item.verCode || '---'}}</view>
+          <view class='btn-wrap'>
+            <button class='cancel' data-serveNumber='{{item.serveNumber}}' bindtap='handleCancel' wx:if='{{num===1}}'>取消</button>
+            <button class='details' data-serveNumber='{{item.serveNumber}}' bindtap='handleDetails'>详情</button>
+          </view>
+        </view>
+      </view>
+      <view class='noData text-center light-gray' wx:if='{{!list.length}}'>oh!暂无数据</view>
+    </view>
+    <footer current="orderList"></footer>
+  </view>
+  <view id='dialog' wx:if='{{showDialog}}'>
+    <view class='modal-wrap'>
+      <view class='modal-header'>
+        <text>取消原因</text>
+      </view>
+      <view class='modal-content'>
+        <label class='form-item'>
+          <text>取消原因：</text>
+          <picker name='cancelReason' range='{{cancelReasonList}}' range-key='label' bindchange='handleCancelReasonChange' value="{{formData2.cancelReason}}">
+          <view class="picker">
+            {{cancelReasonList[formData2.cancelReason].label}}
+          </view>
+          <image class='arrow' src='/images/arrow.png'></image>
+        </picker>
+        </label>
+        <label class='form-item'>
+          <text>取消备注：</text>
+          <textarea name='remarks' auto-height bindInput="handleRemarksChange" value='{{formData2.remarks}}' placeholder="请输入备注信息" />
+        </label>
+      </view>
+      <view class='modal-footer'>
+        <view class='btn cancel' bindtap='handleCancelDelete'>取消</view>
+        <view class='btn confirm' bindtap='handleConfirmDelete'>确定</view>
+      </view>
+    </view>
+  </view>
+</view>

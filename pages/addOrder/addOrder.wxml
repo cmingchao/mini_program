@@ -1,0 +1,59 @@
+<view id='page'>
+  <view id='box'>
+    <view class='title dark-gray'>新增免提袋订单</view>
+    <form bindsubmit="handleFormSubmit">
+      <label class='form-item border'>
+        <text>* 手机号：</text>
+        <input name='phoneNumber' type='number' maxlength='11' value='{{formData.phoneNumber}}' bindinput='handlePhoneNumberChange' placeholder='请输入手机号'></input>
+      </label>
+      <label class='form-item'>
+        <text>* 姓名：</text>
+        <input name='name' disabled='{{disabled}}' value='{{formData.name}}' bindinput='handleNameChange' placeholder='请输入姓名'></input>
+      </label>
+      <label class='form-item'>
+        <text>* 配送类型：</text>
+        <picker name='deliveryType' range='{{deliveryTypeList}}' range-key='label' bindchange='handleDeliveryTypeChange' value="{{formData.deliveryType}}">
+          <view class="picker ">
+            {{deliveryTypeList[formData.deliveryType].label}}
+          </view>
+          <image class='arrow' src='/images/arrow.png'></image>
+        </picker>
+      </label>
+      <label class='form-item border' wx:if='{{formData.deliveryType!==1}}'>
+        <text>* 送货地点：</text>
+        <picker name='deliveryAddress' range='{{deliveryAddressList}}' range-key='label' bindchange='handleDeliveryAddressChange' value="{{formData.deliveryAddress}}">
+          <view class="picker">
+            {{deliveryAddressList[formData.deliveryAddress].label}}
+          </view>
+          <image class='arrow' src='/images/arrow.png'></image>
+        </picker>
+      </label>
+      <label class='form-item' wx:if='{{formData.deliveryType!==1}}'>
+        <text>* 送货时间：</text>
+        <picker name='deliveryTime' mode='time' start='00:00' end='23:59' bindchange='handleDeliveryTimeChange' value="{{formData.deliveryTime}} ">
+          <view class="picker ">
+            {{formData.deliveryTime}}
+          </view>
+          <image class='arrow' src='/images/arrow.png'></image>
+        </picker>
+      </label>
+      <label class='form-item'>
+        <text>* 服务台：</text>
+        <picker name='desk' range='{{deskList}}' range-key='label' bindchange='handleDeskChange' value="{{formData.desk}}">
+          <view class="picker">
+            {{deskList[formData.desk].label}}
+          </view>
+          <image class='arrow' src='/images/arrow.png'></image>
+        </picker>
+      </label>
+      <label class='form-item border'>
+        <text>备注：</text>
+        <textarea name='remarks' auto-height bindinput="handleRemarksChange" value='{{formData.remarks}}' placeholder="请输入备注信息" />
+      </label>
+      <view class="btn-area">
+        <button formType="submit">下一步</button>
+      </view>
+    </form>
+    <footer current="addOrder"></footer>
+  </view>
+</view>

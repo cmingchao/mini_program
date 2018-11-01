@@ -1,0 +1,172 @@
+.search-wrap {
+  width: 99%;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.search-wrap input {
+  height: 80rpx;
+  border: 2rpx solid rgba(153, 153, 153, 0.3);
+  padding-left: 10rpx;
+  border-radius: 10rpx;
+}
+
+.search-wrap image {
+  position: absolute;
+  right: 10rpx;
+  top: 24rpx;
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.header {
+  padding: 20rpx 30rpx;
+  display: flex;
+  height: 80rpx;
+}
+
+.header button {
+  flex-grow: 1;
+  border: none;
+  padding-bottom: 4rpx;
+  border-radius: 0;
+}
+
+.header button.actived {
+  color: #ffb30f;
+  border-bottom: 2px solid #ffb30f;
+}
+
+.order-wrap .order-item {
+  margin-top: 20rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+
+.order-wrap .order-item .order-item-header {
+  padding: 20rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+}
+
+.order-wrap .order-item .order-item-content {
+  padding: 20rpx 30rpx;
+  border-top: 2rpx solid #ebebeb;
+  border-bottom: 2rpx solid #ebebeb;
+}
+
+.order-wrap .order-item .order-item-content .customInfo {
+  margin-top: 10rpx;
+}
+
+.order-wrap .order-item .order-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+}
+
+.order-wrap .order-item .order-item-footer .code {
+  color: #ffb30f;
+}
+
+.order-wrap .order-item .order-item-footer .btn-wrap button {
+  width: 130rpx;
+  height: 70rpx;
+  margin-left: 20rpx;
+}
+
+.order-wrap .order-item .order-item-footer .btn-wrap button.cancel {
+  background-color: #ffb30f;
+  color: #fff;
+}
+
+.order-wrap .order-item .order-item-footer .btn-wrap button.details {
+  background-color: #fff;
+}
+/*对话框 */
+#dialog{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,.7);
+  z-index: 9999;
+}
+#dialog .modal-wrap{
+  width: 90%;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+#dialog .modal-header{
+  padding: 20rpx 0;
+  text-align: center;
+}
+#dialog .modal-content{
+  padding: 0 30rpx;
+  margin-top: 10rpx;
+}
+#dialog .modal-content .form-item{
+  display: flex;
+  align-items: center;
+  margin-top: 25rpx;
+  font-size: 30rpx;
+}
+#dialog .modal-content .form-item text{
+  width: 155rpx;
+  text-align: right;
+  display: inline-block;
+}
+#dialog .modal-content .form-item input,
+#dialog .modal-content .form-item textarea,
+#dialog .modal-content .form-item picker{
+  flex-grow: 1;
+  padding-left: 6rpx;
+  border: 2rpx solid rgba(213,213,213,.8);
+  border-radius: 10rpx;
+}
+#dialog .modal-content .form-item input,
+#dialog .modal-content .form-item picker{
+  position: relative;
+  height: 80rpx;
+}
+
+#dialog .modal-content .form-item picker .picker{
+  width: 90%;
+  height: 80rpx;
+  display: inline-flex;
+  align-items: center;
+}
+#dialog .modal-content .form-item picker .arrow{
+ width: 20rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 14rpx;
+  transform: rotate(90deg);
+  border-radius:10rpx;
+}
+#dialog .modal-footer{
+  display: flex;
+  border-top: 2rpx solid rgba(213,213,213,.8);
+  margin-top: 30rpx;
+}
+#dialog .modal-footer .btn{
+  flex-grow: 1;
+  height: 90rpx;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+#dialog .modal-footer .cancel{
+ border-right:2rpx solid rgba(213,213,213,.8);
+}
+#dialog .modal-footer .confirm{
+  color: #ffb30f;
+}

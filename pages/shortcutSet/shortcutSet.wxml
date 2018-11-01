@@ -1,0 +1,24 @@
+<view id='page'>
+  <view id='box'>
+    <form  bindsubmit="handleFormSubmit">
+      <label class='form-item'>
+       <input name='shortcutKey1' maxlength='15' value='{{formData[0].shortcutKey}}' bindinput='handleInputChange1' placeholder='快捷键名'></input>
+        <text>：</text>
+        <input name='goodName1' maxlength='20' value='{{formData[0].goodName}}' bindinput='handleInputChange1_1' placeholder='请输入商品名'></input>
+      </label>
+       <label class='form-item border'>
+       <input name='shortcutKey2' maxlength='15' value='{{formData[1].shortcutKey}}' bindinput='handleInputChange2' placeholder='快捷键名'></input>
+        <text>：</text>
+        <input name='goodName2' maxlength='20' value='{{formData[1].goodName}}' bindinput='handleInputChange2_1' placeholder='请输入商品名'></input>
+      </label>
+       <label class='form-item border'>
+       <input name='shortcutKey3' maxlength='15' value='{{formData[2].shortcutKey}}' bindinput='handleInputChange3' placeholder='快捷键名'></input>
+        <text>：</text>
+        <input name='goodName3' maxlength='20' value='{{formData[2].goodName}}' bindinput='handleInputChange3_1' placeholder='请输入商品名'></input>
+      </label>
+      <view class="btn-wrap">
+        <button formType="submit">确定</button>
+      </view>
+    </form>
+  </view>
+</view>
