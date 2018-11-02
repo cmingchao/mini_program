@@ -11,8 +11,8 @@
       <view class='status text-center font-medium' wx:elif='{{res.serveStatus===8}}'>已自提</view>
       <view class='status text-center font-medium' wx:else='{{res.serveStatus===9}}'>超时失败</view>
       <view>
-        <text>贴袋码：</text>
-        <text>{{res.verCode || '---'}}</text>
+        <text>取货码：</text>
+        <text>{{code || '---'}}</text>
       </view>
       <view wx:if='{{res.giveType===1}}'>
         <text>时间：</text>

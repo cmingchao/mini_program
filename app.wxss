@@ -9,7 +9,7 @@ button {
 }
 
 input, textarea, picker {
-  min-height: 70rpx;
+  height: 70rpx;
   border: 2rpx solid rgba(213, 213, 213, 0.6);
   border-radius: 10rpx;
   padding-left: 6rpx;

@@ -64,9 +64,9 @@ Page({
       goodsName: value,
       historyRecordsList: []
     });
-    if (!value){
+    if (!value) {
       that.setData({
-        showDropDown:false
+        showDropDown: false
       });
       return false;
     };
@@ -138,7 +138,7 @@ Page({
     let that = this;
     let formData = that.data.formData;
     let goodsList = that.data.goodsList;
-    console.log('商品列表：',goodsList)
+    console.log('商品列表：', goodsList)
     for (let key in formData) {
       if ((formData[key] === null || formData[key] === undefined) && key !== 'remarks') {
         wx.showModal({
@@ -157,9 +157,9 @@ Page({
       });
       return false;
     }
-    
-    let idx = goodsList.findIndex(item => !item.goodsNum || item.goodsNum<1);
-    if(idx>-1){
+
+    let idx = goodsList.findIndex(item => !item.goodsNum || item.goodsNum < 1);
+    if (idx > -1) {
       wx.showModal({
         title: '提示',
         content: `请设置商品${idx+1}的数量`,
@@ -190,7 +190,6 @@ Page({
         wx.showToast({
           title: '创建服务单成功',
         });
-        return;
         wx.redirectTo({
           url: '/pages/orderList/orderList',
         });
@@ -213,7 +212,7 @@ Page({
   handleShowAddGoodsDialog() {
     this.setData({
       showDialog: true,
-      goodsNum:1
+      goodsNum: 1
     });
   },
   // 点击取消，不创建商品，隐藏添加商品对话框
@@ -243,7 +242,7 @@ Page({
       });
       return false;
     }
-    if (!+this.data.goodsNum ) {
+    if (!+this.data.goodsNum) {
       wx.showModal({
         title: '提示',
         content: '请输入正确的商品数量',
@@ -329,8 +328,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let formData = JSON.parse(options.formData);
-    // console.log("解析后formData:", formData);
+    let formData = JSON.parse(globalData.formData);
+    console.log("解析后formData:", formData);
     this.setData({
       formData
     });
@@ -389,7 +388,7 @@ Page({
    * 
    */
   /* 点击减号 */
-  bindMinus: function (e) {
+  bindMinus: function(e) {
     console.log(e)
     let index = +e.currentTarget.dataset.index;
     let num = +e.currentTarget.dataset.num;
@@ -408,8 +407,8 @@ Page({
     this.handleChangeGoodsNum();
   },
   /* 点击加号 */
-  bindPlus: function (e) {
-    let index=+e.currentTarget.dataset.index;
+  bindPlus: function(e) {
+    let index = +e.currentTarget.dataset.index;
     let num = +e.currentTarget.dataset.num;
     // 不作过多考虑自增1
     num++;
@@ -424,7 +423,7 @@ Page({
     this.handleChangeGoodsNum();
   },
   /* 输入框事件 */
-  bindManual: function (e) {
+  bindManual: function(e) {
     let index = +e.currentTarget.dataset.index;
     var num = +e.detail.value;
     // if (num===0) num=1;
@@ -435,9 +434,23 @@ Page({
     });
     this.handleChangeGoodsNum();
   },
+  // 商品数量输入失去焦点时
+  handleNumInputBlur(e) {
+    let index = +e.currentTarget.dataset.index;
+    var num = +e.detail.value;
+    if (!num) {
+      num = 1;
+    }
+    // 将数值与状态写回
+    this.setData({
+      index,
+      num: num
+    });
+    this.handleChangeGoodsNum();
+  },
   // 点击某条商品更改商品数量
-  handleChangeGoodsNum(){
- let goodsList = this.data.goodsList;
+  handleChangeGoodsNum() {
+    let goodsList = this.data.goodsList;
     goodsList[this.data.index].goodsNum = +this.data.num;
     this.setData({
       goodsList

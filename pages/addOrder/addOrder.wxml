@@ -21,7 +21,7 @@
       </label>
       <label class='form-item border' wx:if='{{formData.deliveryType!==1}}'>
         <text>* 送货地点：</text>
-        <picker name='deliveryAddress' range='{{deliveryAddressList}}' range-key='label' bindchange='handleDeliveryAddressChange' value="{{formData.deliveryAddress}}">
+        <picker class='deliveryAddress' name='deliveryAddress' range='{{deliveryAddressList}}' range-key='label' bindchange='handleDeliveryAddressChange' value="{{formData.deliveryAddress}}">
           <view class="picker">
             {{deliveryAddressList[formData.deliveryAddress].label}}
           </view>

@@ -24,7 +24,7 @@
           <view class='code'>取货码：{{item.verCode || '---'}}</view>
           <view class='btn-wrap'>
             <button class='cancel' data-serveNumber='{{item.serveNumber}}' bindtap='handleCancel' wx:if='{{num===1}}'>取消</button>
-            <button class='details' data-serveNumber='{{item.serveNumber}}' bindtap='handleDetails'>详情</button>
+            <button class='details' data-code="{{item.verCode}}" data-serveNumber='{{item.serveNumber}}' bindtap='handleDetails'>详情</button>
           </view>
         </view>
       </view>

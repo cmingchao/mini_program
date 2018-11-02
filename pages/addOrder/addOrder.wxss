@@ -41,12 +41,17 @@ form .form-item input {
 }
 
 form .form-item picker .picker {
-  min-height: 70rpx;
+  height: 70rpx;
   width: 90%;
   display: inline-flex;
   align-items: center;
 }
 
+form .form-item picker.deliveryAddress,
+form .form-item picker.deliveryAddress .picker {
+  height: auto;
+  min-height: 70rpx;
+}
 form .form-item picker .arrow {
   width: 20rpx;
   height: 40rpx;

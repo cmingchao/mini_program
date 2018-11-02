@@ -169,9 +169,10 @@ Page({
   },
   //详情
   handleDetails(e) {
-    let serveNumber = e.currentTarget.dataset.servenumber;
+    let serveNumber = e.currentTarget.dataset.servenumber,
+      code = e.currentTarget.dataset.code;
     wx.navigateTo({
-      url: `/pages/orderDetails/orderDetails?serveNumber=${serveNumber}`
+      url: `/pages/orderDetails/orderDetails?serveNumber=${serveNumber}&code=${code}`
     });
   },
   // 获取服务单分页列表
@@ -215,7 +216,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.getServePageList();
+    // this.getServePageList();
   },
 
   /**

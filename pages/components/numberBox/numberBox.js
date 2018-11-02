@@ -65,6 +65,18 @@ Component({
         num: num
       });
       this.triggerEvent('myevent', { num: this.data.num});
+    },
+    /* 输入框失去焦点事件 */
+    handleNumInputBlur(e){
+      var num = e.detail.value;
+      if(!num){
+        num=1;
+      }
+      // 将数值与状态写回
+      this.setData({
+        num: num
+      });
+      this.triggerEvent('myevent', { num: this.data.num });
     }
   }
 })

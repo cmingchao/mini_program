@@ -10,7 +10,7 @@
       </view>
     </view>
     <view class='shortcutSet bg-white'>
-      <button class='shortcut' data-id='{{item.id}}' data-goodsName='{{item.goodsName}}' wx:for='{{shortCutList}}' wx:key='{{index}}' bindtap='handleShortcutAdd'>
+      <button class='shortcut' data-id='{{item.id}}' data-goodsName='{{item.goodsName}}' wx:for='{{shortCutList}}' wx:key='{{index}}' bindtap='handleShortcutAdd' wx:if='{{item.shortcutKey}}'>
         {{item.shortcutKey}}
       </button>
       <button class='shortcut shortcut-4' bindtap='handleShortcutSet'>快捷键设置</button>
@@ -31,7 +31,7 @@
               <!-- 减号 -->
               <text class="obtn {{minusStatus}}" data-index='{{index}}' data-num='{{item.goodsNum}}' bindtap="bindMinus">-</text>
               <!-- 数值 -->
-              <input class='onumber' type="number" data-index='{{index}}' bindinput="bindManual" value="{{item.goodsNum}}" />
+              <input class='onumber' type="number" data-index='{{index}}' bindinput="bindManual" bindblur='handleNumInputBlur' value="{{item.goodsNum}}" />
               <!-- 加号 -->
               <text class="obtn normal" data-index='{{index}}' data-num='{{item.goodsNum}}' bindtap="bindPlus">+</text>
             </view>
