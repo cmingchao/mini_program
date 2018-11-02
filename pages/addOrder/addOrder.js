@@ -188,8 +188,9 @@ Page({
       obj.deliveryTime = date + ' ' + formData.deliveryTime + ':00';
     }
     console.log('提交的obj:', obj);
+    globalData.formData = JSON.stringify(obj);
     wx.navigateTo({
-      url: `/pages/goodsDetails/goodsDetails?formData=` + JSON.stringify(obj)
+      url: `/pages/goodsDetails/goodsDetails`
     });
   },
   /**

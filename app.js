@@ -63,6 +63,7 @@ App({
   globalData: {
     userInfo: null,
     sessionId: null,
-    userName: null
+    userName: null,
+    formData:{}
   }
 })

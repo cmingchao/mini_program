@@ -41,7 +41,7 @@ form .form-item input {
 }
 
 form .form-item picker .picker {
-  height: 70rpx;
+  min-height: 70rpx;
   width: 90%;
   display: inline-flex;
   align-items: center;
