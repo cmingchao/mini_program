@@ -22,7 +22,7 @@ Page({
       }
     },
     formData2: {
-      cancelReason: 0,
+      cancelReason: '',
       remarks: ''
     },
     cancelReasonList: []
@@ -82,7 +82,7 @@ Page({
       let cancelReasonList = data.map(item => {
         return {
           label: item.depict,
-          value: item.id
+          value: +item.id
         }
       });
       that.setData({
