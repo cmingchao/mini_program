@@ -121,6 +121,7 @@ Page({
         ]
       };
       option1.title.text = '本月收入统计';
+      data1.data = !data1.data ? [] : data1.data;
       option1.xAxis.data = data1.data.map(item => item.mallName || '');
       data1.data.map(item => {
         option1.series[0].data.push(item.receiveMoney || 0);
@@ -134,7 +135,7 @@ Page({
         title: globalData.baseOption.title,
         tooltip: globalData.baseOption.tooltip,
         legend: {
-          show:true,
+          show: true,
           bottom: 0,
           data: ['收缴率']
         },
@@ -147,28 +148,27 @@ Page({
           type: 'value',
           name: '(%)'
         },
-        series: [
-          {
-            name: '收缴率',
-            type: 'bar',
-            barMaxWidth: globalData.baseOption.barMaxWidth,
-            label: {
-              show: true,
-              position: 'top',
-              color: '#666',
-              formatter(params) {
-                let value = params.value
-                if (value) return value;
-                else return '';
-              }
-            },
-            itemStyle: globalData.baseOption.itemStyle,
-            data: []
-          }
-        ]
+        series: [{
+          name: '收缴率',
+          type: 'bar',
+          barMaxWidth: globalData.baseOption.barMaxWidth,
+          label: {
+            show: true,
+            position: 'top',
+            color: '#666',
+            formatter(params) {
+              let value = params.value
+              if (value) return value;
+              else return '';
+            }
+          },
+          itemStyle: globalData.baseOption.itemStyle,
+          data: []
+        }]
       };
       option2.title.text = '收缴率统计';
-      option2.series[0].data=data2.data[0].value || [];
+      data2.data = !data2.data ? [] : data2.data;
+      option2.series[0].data = data2.data[0].value || [];
       chart2.setOption(option2);
       //第三个
       let option3 = {
@@ -183,10 +183,10 @@ Page({
         xAxis: {
           type: 'value',
           name: '(万)',
-          nameLocation:'center'
+          nameLocation: 'center'
         },
         yAxis: {
-          type:'category',
+          type: 'category',
           data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
           axisLabel: globalData.baseOption.xAxisLabel,
           boundaryGap: globalData.baseOption.boundaryGap
@@ -214,28 +214,31 @@ Page({
         ]
       };
       option3.title.text = '年度租金分布';
-      option3.legend.data = data3.data.map(item => item.name || '');
-      data3.data.map(item => {
-        option3.series.push({
-          name: item.name || '',
-          type: 'bar',
-          barMaxWidth: globalData.baseOption.barMaxWidth,
-          label: {
-            show: true,
-            position: 'right',
-            color: '#666',
-            formatter(params) {
-              let value = params.value
-              if (value) return value;
-              else return '';
-            }
-          },
-          itemStyle: {
-            barBorderRadius: [0, 5, 5, 0]
-          },
-          data: item.value || []
+      data3.data = !data3.data ? [] : data3.data;
+      if (data3.data) {
+        option3.legend.data = data3.data.map(item => item.name || '');
+        data3.data.map(item => {
+          option3.series.push({
+            name: item.name || '',
+            type: 'bar',
+            barMaxWidth: globalData.baseOption.barMaxWidth,
+            label: {
+              show: true,
+              position: 'right',
+              color: '#666',
+              formatter(params) {
+                let value = params.value
+                if (value) return value;
+                else return '';
+              }
+            },
+            itemStyle: {
+              barBorderRadius: [0, 5, 5, 0]
+            },
+            data: item.value || []
+          })
         })
-      })
+      }
       chart3.setOption(option3);
     });
   },

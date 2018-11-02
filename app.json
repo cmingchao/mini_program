@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/mainEntrance/index/index",
+    "pages/mainEntrance/activityPage/activityPage",
     "pages/mainEntrance/homePage/homePage",
     "pages/mainEntrance/finance/finance",
     "pages/mainEntrance/sale/sale",
@@ -9,7 +10,7 @@
   ],
   "window": {
     "navigationBarBackgroundColor": "#61a4ff",
-    "navigationBarTitleText": "中冶置地BI系统",
+    "navigationBarTitleText": "中冶商业BI系统",
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true,
     "backgroundColor": "#eeeeee"

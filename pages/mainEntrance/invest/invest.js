@@ -120,6 +120,7 @@ Page({
         ]
       };
       option1.title.text = '本月签约情况';
+      data1.data = !data1.data ? [] : data1.data;
       option1.xAxis.data = data1.data.map(item => item.mallName || '');
       data1.data.map(item => {
         option1.series[0].data.push(item.signNumber || 0);
@@ -164,6 +165,7 @@ Page({
         }, ]
       };
       option2.title.text = '项目出租率对比';
+      data2.data = !data2.data ? [] : data2.data;
       option2.xAxis.data = data2.data.map(item => item.mallName || '');
       option2.series[0].data = data2.data.map(item => item.rentRate || 0);
       chart2.setOption(option2);
@@ -206,6 +208,7 @@ Page({
         ]
       };
       option3.title.text = '项目业态分布';
+      data3.data = !data3.data ? [] : data3.data;
       option3.tooltip.formatter = (params) => {
         let $b = params[0].name;
         let $str = '';

@@ -36,7 +36,7 @@ App({
   globalData: {
     userInfo: null,
     token: '',
-    baseUrl: 'http://192.168.1.108:8081',
+    baseUrl: 'https://sy.mcczy.com',
     time:1000,
     //echarts全局配置
     baseOption: {

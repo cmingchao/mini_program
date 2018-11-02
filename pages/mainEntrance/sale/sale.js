@@ -2,7 +2,8 @@
 import * as echarts from '../components/ec-canvas/echarts';
 const globalData = getApp().globalData;
 import {
-  $http
+  $http,
+  getDay
 } from '../../../utils/util.js';
 let chart1 = null,
   chart2 = null,
@@ -14,6 +15,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    dateList:[],
     ec1: {
       onInit: function(canvas, width, height) {
         chart1 = echarts.init(canvas, null, {
@@ -93,7 +95,7 @@ Page({
           data: []
         },
         xAxis: {
-          data: ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日'],
+          data: this.data.dateList,
           axisLabel: globalData.baseOption.xAxisLabel,
           boundaryGap: globalData.baseOption.boundaryGap
         },
@@ -113,7 +115,8 @@ Page({
           // }
         ]
       };
-      option1.title.text = '本周销售走势';
+      option1.title.text = '近7天销售走势';
+      data1.data = !data1.data ? [] : data1.data;
       option1.legend.data = data1.data.map(item => item.name);
       data1.data.map(item => {
         option1.series.push({
@@ -163,6 +166,7 @@ Page({
         }]
       };
       option2.title.text = '本月业态销售占比';
+      data2.data = !data2.data ? [] : data2.data;
       option2.legend.data = data2.data.map(item => item.brandcatName || '');
       data2.data.map(item => {
         option2.series[0].data.push({
@@ -202,6 +206,7 @@ Page({
         }]
       };
       option3.title.text = '本月项目销售占比';
+      data3.data = !data3.data ? [] : data3.data;
       option3.legend.data = data3.data.map(item => item.mallName || '');
       data3.data.map(item => {
         option3.series[0].data.push({
@@ -242,10 +247,22 @@ Page({
           data: []
         }]
       };
-      option4.title.text = '品牌销售TOP10';
+      option4.title.text = '本月品牌销售TOP10';
+      data4.data = !data4.data ? [] : data4.data;
       option4.xAxis.data = data4.data.map(item => item.brandName || '');
       option4.series[0].data = data4.data.map(item => item.saleAmount || 0);
       chart4.setOption(option4);
+    });
+  },
+  // 返回近7天日期
+  getCurrentSevenDate() {
+    let dateList = this.data.dateList;
+    for (let i = -6; i < 1; i++) {
+      let date = getDay(i);
+      dateList.push(date);
+    }
+    this.setData({
+      dateList
     });
   },
   /**
@@ -254,6 +271,7 @@ Page({
   onLoad: function(options) {
     //加载过快导致echarts未创建完成出现空值错误
     setTimeout(this.getData, globalData.time);
+    this.getCurrentSevenDate();
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

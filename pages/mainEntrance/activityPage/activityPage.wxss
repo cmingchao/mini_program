@@ -1,0 +1,41 @@
+#box{
+  position: relative;
+  width: 100%;
+  padding-top: 1rpx;
+  padding-bottom: 100rpx;
+}
+#box .big-bg-img{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.img-wrap{
+  margin-top: 405rpx;
+  padding: 0 30rpx;
+}
+.img-wrap .img-item{
+  margin-top: 30rpx;
+  height: 270rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.img-wrap .img-item .bg-img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.img-wrap .img-item button{
+  border: none;
+  width: 300rpx;
+  height: 80rpx;
+}
+.img-wrap .img-item button image{
+  width: 100%;
+  height: 100%;
+}

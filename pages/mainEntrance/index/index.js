@@ -9,8 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userName: 'superadmin',
-    password: 'superadmin'
+    userName: '',
+    password: ''
   },
   getInputUserName(e) {
     this.setData({
@@ -49,9 +49,9 @@ Page({
       }).then(data => {
         if (data.status.code == '10000') {
           globalData.token = data.data;
-          wx.switchTab({
-            url: '/pages/mainEntrance/homePage/homePage'
-          })
+          wx.redirectTo({
+            url: '/pages/mainEntrance/activityPage/activityPage',
+          });
         } else {
           wx.showModal({
             title: '提示',

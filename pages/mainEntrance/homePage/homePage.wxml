@@ -12,6 +12,10 @@
           <text class='name'>今日销售</text>
         </view>
         <view>
+          <text class='number'>{{todayPassengerflow}}</text>
+          <text class='name'>今日客流</text>
+        </view>
+        <view>
           <text class='number'>{{todayMonthIncome}}</text>
           <text class='name'>本月收入</text>
         </view>
@@ -24,11 +28,20 @@
     <view class='canvas-item'>
       <ec-canvas ec="{{ ec1 }}" canvas-id='ec-canvas1' id='ec-canvas1'></ec-canvas>
     </view>
-    <view class='canvas-item'>
+     <view class='canvas-item'>
       <ec-canvas ec="{{ ec2 }}" canvas-id='ec-canvas2' id='ec-canvas2'></ec-canvas>
     </view>
     <view class='canvas-item'>
       <ec-canvas ec="{{ ec3 }}" canvas-id='ec-canvas3' id='ec-canvas3'></ec-canvas>
+    </view>
+    <view class='canvas-item'>
+      <ec-canvas ec="{{ ec4 }}" canvas-id='ec-canvas4' id='ec-canvas4'></ec-canvas>
+    </view>
+    <view class='canvas-item'>
+      <ec-canvas ec="{{ ec5 }}" canvas-id='ec-canvas5' id='ec-canvas5'></ec-canvas>
+    </view>
+    <view class='canvas-item'>
+      <ec-canvas ec="{{ ec6 }}" canvas-id='ec-canvas6' id='ec-canvas6'></ec-canvas>
     </view>
   </view>
 </view>

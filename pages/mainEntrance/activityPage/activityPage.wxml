@@ -1,0 +1,31 @@
+<view id='page'>
+  <view id='box'>
+    <image class='big-bg-img' src='https://sy.mcczy.com/images/mobile/bj.png'></image>
+    <view class='img-wrap'>
+      <view class='img-item img-item-1'>
+        <image class='bg-img' src='https://sy.mcczy.com/images/mobile/tianjin.png'></image>
+        <button plain='true' hover-class='none' bindtap='handleGoLoginPage'>
+          <image src='https://sy.mcczy.com/images/mobile/welcome.png'></image>
+        </button>
+      </view>
+      <view class='img-item img-item-2'>
+        <image class='bg-img' src='https://sy.mcczy.com/images/mobile/shijiazhuang.png'></image>
+        <button plain='true' hover-class='none'>
+          <image src='https://sy.mcczy.com/images/mobile/expect.png'></image>
+        </button>
+      </view>
+      <view class='img-item img-item-3'>
+        <image class='bg-img' src='https://sy.mcczy.com/images/mobile/nanjing.png'></image>
+        <button plain='true' hover-class='none'>
+          <image src='https://sy.mcczy.com/images/mobile/expect.png'></image>
+        </button>
+      </view>
+      <view class='img-item img-item-4'>
+        <image class='bg-img' src='https://sy.mcczy.com/images/mobile/zhuhai.png'></image>
+        <button plain='true' hover-class='none'>
+          <image src='https://sy.mcczy.com/images/mobile/expect.png'></image>
+        </button>
+      </view>
+    </view>
+  </view>
+</view>

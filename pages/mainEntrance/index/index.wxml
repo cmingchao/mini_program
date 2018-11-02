@@ -4,7 +4,7 @@
     <view class='login-box'>
       <view class='logo'>
         <image src='/pages/images/bj@2x.png'></image>
-        <text>中冶置业BI系统</text>
+        <text>中冶商业BI系统</text>
       </view>
       <form bindsubmit='login'>
         <view class='form-item'>

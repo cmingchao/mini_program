@@ -32,14 +32,19 @@
 }
 .header .project-status view .number{
   font-size: 48rpx;
-  color:#5DB428;
   font-weight: bold;
 }
+.header .project-status view:nth-child(1) .number{
+  color:#5cb429;
+}
 .header .project-status view:nth-child(2) .number{
-  color:#EFB52E;
+  color:#f76395;
+}
+.header .project-status view:nth-child(3) .number{
+  color:#efb52d;
 }
 .header .project-status view:last-child .number{
-  color:#6183FF;
+  color:#6081ff;
 }
 .header .project-status view .name{
   color:#999;
