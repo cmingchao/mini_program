@@ -15,11 +15,11 @@
       </view>
       <view>
         <text>应收总金额：</text>
-        <text>{{result.total_amount}}</text>
+        <text>{{result.total_amount || ''}}</text>
       </view>
       <view>
         <text>实收总金额：</text>
-        <text> {{result.total_income}}</text>
+        <text> {{result.total_income || ''}}</text>
       </view>
       <view>
         <text>水单号：</text>

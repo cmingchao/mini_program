@@ -5,12 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    url:'http://gowins.imwork.net:8696/ShoppingMallWeb/webapi',
+    // url:'http://gowins.imwork.net:8696/ShoppingMallWeb/webapi',
+    url: 'http://222.180.250.18:8350/ShoppingMallWeb/webapi',
     YHBS: "E84E7273764D2D77E9FC4E9C521E8C3750",
     XTLB: "gdws",
     DYLX: "GET_MAOCOL_DATA",
     DATA: {
-      txdocno: '123122221'
+      txdocno: ''
     },
     //结果
     result: {}
@@ -19,15 +20,17 @@ Page({
     let that = this;
     wx.scanCode({
       success(res) {
+        // console.log(res);
         // 扫码的结果
         let result = res.result;
+        // let result = '31286ac6ms01000010120180928180615141';
         wx.showLoading({
           title: '加载中',
           mask: true
         });
         wx.request({
           method: 'POST',
-          url: `${that.data.url}?YHBS=${that.data.YHBS}&&XTLB=${that.data.XTLB}&&DYLX=${that.data.DYLX}&&DATA={txdocno: ${result}}`,
+          url: `${that.data.url}?YHBS=${that.data.YHBS}&&XTLB=${that.data.XTLB}&&DYLX=${that.data.DYLX}&&DATA={"txdocno":"${result}"}`,
           data: {
             // YHBS: "E84E7273764D2D77E9FC4E9C521E8C3750",
             // XTLB: "gdws",
@@ -39,22 +42,31 @@ Page({
           success(res) {
             let data = res.data;
             if (data.status.code == '10000') {
-              that.setData({
-                'result.sid': data.rows.sid || '',
-                'result.ts_date': data.rows.ts_date || '',
-                'result.total_amount': Number(data.rows.total_amount).toFixed(2) || '',
-                'result.total_income': Number(data.rows.total_income).toFixed(2) || '',
-                'result.receipt_no': data.rows.receipt_no || '',
-                'result.vip_member': data.rows.vip_member || '',
-                'result.receipt_date': data.rows.receipt_date || '',
-                'result.receipt_time': data.rows.receipt_time || '',
-                'result.receipt_type': data.rows.receipt_type || '',
-                'result.payment': data.rows.payment || ''
-              });
+              let rows=data.rows;
+              if (rows.receipt_no){
+                that.setData({
+                  'result.sid': rows.sid || '',
+                  'result.ts_date': rows.ts_date || '',
+                  'result.total_amount': Number(rows.total_amount).toFixed(2) || '',
+                  'result.total_income': Number(rows.total_income).toFixed(2) || '',
+                  'result.receipt_no': rows.receipt_no || '',
+                  'result.vip_member': rows.vip_member || '',
+                  'result.receipt_date': rows.receipt_date || '',
+                  'result.receipt_time': rows.receipt_time || '',
+                  'result.receipt_type': rows.receipt_type || '',
+                  'result.payment': rows.payment || ''
+                });
+              }else{
+                wx.showModal({
+                  title: '提示',
+                  content: `请求成功，暂无数据`
+                });
+              }
+              
             } else {
               wx.showModal({
                 title: '提示',
-                content: `请求失败，原因：${data.status.msg}`
+                content: `请求失败，此单号可能不存在，原因：${data.status.msg}`
               });
             }
           },
