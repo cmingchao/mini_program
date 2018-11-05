@@ -25,11 +25,20 @@ Page({
     showDialog:false,
     serveNumber:''
   },
-  // 确认到店取货
+  // 确定到店取货
   handleConfirmTake(e){
+    // console.log(e);
     let that = this;
     let serveNumber = +that.data.serveNumber;
-    let code=e.detail.code;
+    let code=e.detail.value.code.trim();
+    if (!code){
+      wx.showModal({
+        title: '提示',
+        content: '请输入取货码',
+        showCancel:false
+      });
+      return false;
+    }
     ajaxPost({
       type: 'PUT',
       url: `/deliverApi/confirmPickGoods?serveNumber=${serveNumber}&sessionId=${globalData.sessionId}&code=${code}`,
@@ -39,19 +48,19 @@ Page({
           wx.showToast({
             title: '取货成功'
           });
-          getDeliverCount(that);
           that.setData({
             arr: [],
             page: 1,
             showDialog:false
           });
+          getDeliverCount(that);
           that.getOrderList();
         } else {
           wx.showModal({
-            title: '取货失败',
-            content: `失败原因:${data.message || '未知'}`,
+            title: '提示',
+            content: `取货失败,原因:${data.message || '未知'}`,
             showCancel: false,
-          })
+          });
         }
       },
       fail(err) {
@@ -59,7 +68,7 @@ Page({
           title: '取货失败',
           content: `原因:${err.errMsg}`,
           showCancel: false,
-        })
+        });
       }
     })
   },
@@ -183,7 +192,7 @@ Page({
       }
     })
   },
-  // 点击到店取货完成
+  // 点击到店取货
   completeTakeGoods(e) {
     let serveNumber=e.currentTarget.dataset.servenumber;
     this.setData({

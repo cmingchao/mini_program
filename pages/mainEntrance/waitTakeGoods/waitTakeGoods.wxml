@@ -12,7 +12,7 @@
           <template is="wait-take-give-item" data="{{...item,flag}}" />
           <template is="order" data="{{item}}" />
           <view class="btn">
-            <button size="mini" hidden='{{item.serveStatus!=1}}' data-serveNumber="{{item.serveNumber}}" bindtap='completeTakeGoods'>到店取货完成</button>
+            <button size="mini" hidden='{{item.serveStatus!=1}}' data-serveNumber="{{item.serveNumber}}" bindtap='completeTakeGoods'>到店取货</button>
           </view>
         </view>
       </block>
@@ -21,12 +21,12 @@
       <form bindsubmit='handleConfirmTake'>
         <view class='modal-wrap'>
           <view class='modal-header'>
-            <text>验证码</text>
+            <text>取货码</text>
           </view>
           <view class='modal-content'>
             <label class='form-item'>
-              <text>验证码</text>
-              <input name='code' placeholder='请输入验证码' maxlength='15'></input>
+              <text>取货码</text>
+              <input name='code' placeholder='请输入取货码' maxlength='15'></input>
             </label>
           </view>
           <view class='modal-footer'>
