@@ -18,5 +18,71 @@
   border: none;
 }
 
+/*对话框 */
+#dialog{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,.7);
+  z-index: 9999;
+}
+#dialog form{
+  width: 90%;
+}
+#dialog .modal-wrap{
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+#dialog .modal-header{
+  padding: 20rpx 0;
+  text-align: center;
+}
+#dialog .modal-content{
+  padding: 0 30rpx;
+  margin-top: 10rpx;
+}
+#dialog .modal-content .form-item{
+  display: flex;
+  align-items: center;
+  margin-top: 25rpx;
 
+}
+#dialog .modal-content .form-item text{
+  color: #999;
+  font-size: 30rpx;
+  width: 140rpx;
+}
+#dialog .modal-content .form-item:first-of-type input{
+  border: 2rpx solid rgba(213,213,213,.8);
+  border-radius: 10rpx;
+  padding-left: 10rpx;
+  flex-grow: 1;
+  height: 60rpx;
+  font-size: 28rpx;
+}
+#dialog .modal-footer{
+  display: flex;
+  border-top: 2rpx solid rgba(213,213,213,.8);
+  margin-top: 30rpx;
+}
+#dialog .modal-footer .btn{
+  flex-grow: 1;
+  height: 90rpx;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+#dialog .modal-footer .cancel{
+ border-right:2rpx solid rgba(213,213,213,.8);
+}
+#dialog .modal-footer .confirm{
+  color: #ffb30f;
+}
 

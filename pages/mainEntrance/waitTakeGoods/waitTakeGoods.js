@@ -21,7 +21,52 @@ Page({
     page: 1, //当前页码，
     pageSize: 4, //每页显示数据条数
     flag: 0,
-    arr: [] //列表
+    arr: [], //列表,
+    showDialog:false,
+    serveNumber:''
+  },
+  // 确认到店取货
+  handleConfirmTake(e){
+    let that = this;
+    let serveNumber = +that.data.serveNumber;
+    let code=e.detail.code;
+    ajaxPost({
+      type: 'PUT',
+      url: `/deliverApi/confirmPickGoods?serveNumber=${serveNumber}&sessionId=${globalData.sessionId}&code=${code}`,
+      success(res) {
+        let data = res.data;
+        if (data.success) {
+          wx.showToast({
+            title: '取货成功'
+          });
+          getDeliverCount(that);
+          that.setData({
+            arr: [],
+            page: 1,
+            showDialog:false
+          });
+          that.getOrderList();
+        } else {
+          wx.showModal({
+            title: '取货失败',
+            content: `失败原因:${data.message || '未知'}`,
+            showCancel: false,
+          })
+        }
+      },
+      fail(err) {
+        wx.showModal({
+          title: '取货失败',
+          content: `原因:${err.errMsg}`,
+          showCancel: false,
+        })
+      }
+    })
+  },
+  handleHideDialog(){
+    this.setData({
+      showDialog: false
+    });
   },
   //提示更改了服务台
   promptChangeReception() {
@@ -138,41 +183,12 @@ Page({
       }
     })
   },
-  // 到店取货完成
+  // 点击到店取货完成
   completeTakeGoods(e) {
-    console.log(e);
-    let that = this;
-    let serveNumber = +e.currentTarget.dataset.servenumber;
-    ajaxPost({
-      type: 'PUT',
-      url: `/deliverApi/confirmPickGoods?serveNumber=${serveNumber}&sessionId=${globalData.sessionId}`,
-      success(res) {
-        let data = res.data;
-        if (data.success) {
-          wx.showToast({
-            title: '取货成功'
-          });
-          getDeliverCount(that);
-          that.setData({
-            arr: [],
-            page: 1
-          });
-          that.getOrderList();
-        } else {
-          wx.showModal({
-            title: '取货失败',
-            content: `失败原因:${data.message || '未知'}`,
-            showCancel: false,
-          })
-        }
-      },
-      fail(err) {
-        wx.showModal({
-          title: '取货失败',
-          content: `原因:${err.errMsg}`,
-          showCancel: false,
-        })
-      }
-    })
+    let serveNumber=e.currentTarget.dataset.servenumber;
+    this.setData({
+      showDialog: true,
+      serveNumber
+    });
   }
 })

@@ -43,7 +43,7 @@ const ajaxPost = paramsObj => {
                     success: res => {
                       if (res.code) {
                         wx.request({
-                          url: httpUrl + '/app/getSessionKeyOropenid',
+                          url: globalData.baseUrl + '/app/getSessionKeyOropenid',
                           data: {
                             code: res.code,
                             type: 2

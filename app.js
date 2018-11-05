@@ -1,4 +1,4 @@
-let httpUrl ='http://47.105.70.252'; //内测
+let httpUrl ='httP://192.168.1.128:8089'; //内测
 // let httpUrl = 'https://wh.gdwstech.com/'; //线上
 App({
   // 小程序启动之后 触发

@@ -17,5 +17,24 @@
         </view>
       </block>
     </view>
+    <view id='dialog' wx:if='{{showDialog}}'>
+      <form bindsubmit='handleConfirmTake'>
+        <view class='modal-wrap'>
+          <view class='modal-header'>
+            <text>验证码</text>
+          </view>
+          <view class='modal-content'>
+            <label class='form-item'>
+              <text>验证码</text>
+              <input name='code' placeholder='请输入验证码' maxlength='15'></input>
+            </label>
+          </view>
+          <view class='modal-footer'>
+            <button class='btn cancel' plain='true' bindtap='handleHideDialog'>取消</button>
+            <button class='btn confirm' plain='true' form-type='submit'>确定</button>
+          </view>
+        </view>
+      </form>
+    </view>
   </view>
 </view>
