@@ -81,7 +81,7 @@ Page({
         wx.showToast({
           title: '设置快捷键成功',
         });
-        wx.redirectTo({
+        wx.reLaunch({
           url: '/pages/goodsDetails/goodsDetails'
         });
       } else {
