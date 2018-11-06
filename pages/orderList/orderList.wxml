@@ -13,6 +13,9 @@
       <view class='order-item' wx:for='{{list}}' wx:key='{{item.serveNumber}}'>
         <view class='order-item-header'>
           <text class='number gray'>服务单号：{{item.serveNumber || '---'}}</text>
+          <text class='number gray'  wx:if='{{item.giveType===1}}'>配送类型：配送至指定地点</text>
+          <text class='number gray'  wx:if='{{item.giveType===2}}'>配送类型：用户自提</text>
+          <text class='number gray' wx:if="{{item.deskName}}">服务台：{{item.deskName}}</text>
           <text class='deliveryAddress light-gray' wx:if='{{item.giveType===1}}'>配送地点：{{item.addressName}}</text>
           <text class='deliveryTime light-gray' wx:if='{{item.giveType===1}}'>配送时间：{{item.deliveryTime}}</text>
         </view>

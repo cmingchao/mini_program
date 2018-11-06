@@ -15,6 +15,14 @@
         <text>{{code}}</text>
       </view>
       <view wx:if='{{res.giveType===1}}'>
+        <text>配送类型：</text>
+        <text>配送至指定地点</text>
+      </view>
+      <view wx:if='{{res.giveType===2}}'>
+        <text>配送类型：</text>
+        <text>用户自提</text>
+      </view>
+      <view wx:if='{{res.giveType===1}}'>
         <text>时间：</text>
         <text>{{res.deliveryTime}}之前送达</text>
       </view>
