@@ -169,8 +169,9 @@ Page({
   },
   //详情
   handleDetails(e) {
+    
     let serveNumber = e.currentTarget.dataset.servenumber,
-      code = e.currentTarget.dataset.code;
+      code = e.currentTarget.dataset.code || '';
     wx.navigateTo({
       url: `/pages/orderDetails/orderDetails?serveNumber=${serveNumber}&code=${code}`
     });

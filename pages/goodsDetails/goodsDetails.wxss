@@ -81,7 +81,7 @@
   display: inline-flex;
 }
 .add{
-  margin-top: 150rpx;
+  margin-top: 120rpx;
   padding: 0 30rpx;
   display: flex;
   justify-content: flex-end;
@@ -95,7 +95,7 @@
   height:90rpx;
 }
 .btn-wrap{
-  margin-top: 80rpx;
+  margin-top: 60rpx;
   padding: 0 30rpx;
 }
 .btn-wrap button{
