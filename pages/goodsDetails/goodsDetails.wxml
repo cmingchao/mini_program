@@ -18,7 +18,7 @@
     <view class='goods-wrap'>
       <view class='goods-item' wx:for='{{goodsList}}' wx:key='{{index}}'>
         <view class='goods-item-header'>
-          <text class='index'>订单</text>
+          <text class='index'>商品{{index+1}}</text>
           <button plain='true' class='delete' data-index='{{index}}' bindtap='handleDelete'>
             <image src='/images/delete.png'></image>
           </button>

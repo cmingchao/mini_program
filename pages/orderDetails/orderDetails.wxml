@@ -42,7 +42,7 @@
     <view class='order-wrap'>
       <view class='order-item'>
         <view class='order-item-header'>
-          <text class='index'>No.1</text>
+          <text class='index'>订单</text>
           <text></text>
         </view>
         <view class='order-item-content'>
