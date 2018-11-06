@@ -41,7 +41,7 @@ Page({
     }
     ajaxPost({
       type: 'PUT',
-      url: `/deliverApi/confirmPickGoods?serveNumber=${serveNumber}&sessionId=${globalData.sessionId}&code=${code}`,
+      url: `/deliverApi/confirmPickGoods?serveNumber=${serveNumber}&sessionId=${globalData.sessionId}&verCode=${code}`,
       success(res) {
         let data = res.data;
         if (data.success) {
