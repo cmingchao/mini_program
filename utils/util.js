@@ -1,4 +1,5 @@
-let baseUrl = 'https://mtd.gdwstech.com';
+let baseUrl = 'http://192.168.1.121:8089';
+// let baseUrl = 'https://mtd.gdwstech.com';
 // 发起请求
 const $http = params => {
   wx.showLoading({
@@ -71,7 +72,7 @@ const getSessionId = () => {
         $http({
           url: '/app/getSessionKeyOropenid',
           data: {
-            code: globalData.code,
+            code: res.code,
             type: 3
           }
         }).then(data => {
