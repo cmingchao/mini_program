@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/mine/mine",
+    "pages/rank/rank",
+    "pages/index/index",
+    "pages/login/login"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "戛纳湾",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#47BAFE",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/shouye2.png",
+        "selectedIconPath": "images/shouye1.png"
+      },
+      {
+        "pagePath": "pages/rank/rank",
+        "text": "排行榜",
+        "iconPath": "images/paihangbang2.png",
+        "selectedIconPath": "images/paihangbang1.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/wode2.png",
+        "selectedIconPath": "images/wode1.png"
+      }
+    ]
+  }
+}

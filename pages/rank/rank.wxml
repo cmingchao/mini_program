@@ -1,0 +1,8 @@
+<view id='page'>
+  <view id='box'>
+    <ticketItem></ticketItem>
+    <ticketItem></ticketItem>
+    <shopItem></shopItem>
+    <shopItem></shopItem>
+  </view>
+</view>

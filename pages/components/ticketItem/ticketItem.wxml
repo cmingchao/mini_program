@@ -1,0 +1,19 @@
+<view class='ticket-item'>
+  <!-- <image src='/images/bg.png' class='bg'></image> -->
+  <view class='logo'>
+    <!-- <image src='/images/yiguoqi.png' class='index'></image> -->
+    <image src='/images/tu.png'></image>
+  </view>
+  <view class='info'>
+    <image src='/images/yiguoqi.png' class='status'></image>
+    <view class='title'>68元单人下午茶套餐</view>
+    <view class='shop-name'>
+      <image src='/images/dianpu.png'></image>
+      <text>MUJI(远洋太古里店）</text>
+    </view>
+    <view class='deadline'>
+      <text>有效期至2018-03-12</text>
+      <text>已售8</text>
+    </view>
+  </view>
+</view>

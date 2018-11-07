@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "排行榜",
+  "usingComponents": {
+    "ticketItem":"../components/ticketItem/ticketItem",
+    "shopItem": "../components/shopItem/shopItem"
+  }
+}

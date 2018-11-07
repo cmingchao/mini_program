@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "ticketItem": "../components/ticketItem/ticketItem",
+    "shopItem": "../components/shopItem/shopItem"
+  }
+}

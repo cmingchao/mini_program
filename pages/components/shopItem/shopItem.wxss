@@ -1,0 +1,40 @@
+.shop-item{
+  background-color: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0px 2rpx 2rpx 2rpx rgba(153,153,153,.5);
+  width: 330rpx;
+  height: 360rpx;
+  position: relative;
+  padding: 25rpx 15rpx 15rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.shop-item .index{
+  position: absolute;
+  top: 25rpx;
+  left: 15rpx;
+  font-weight: bold;
+  font-size: 36rpx;
+}
+.shop-item .logo{
+  width: 180rpx;
+  height: 180rpx;
+}
+.shop-item .info{
+  margin-top: 40rpx;
+  text-align: center;
+}
+.shop-item .info .title{
+  color: #1c1c1c;
+  font-size: 30rpx;
+}
+.shop-item .info .num{
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.shop-item .info .num text:last-child{
+  color: #8C7EEC;
+}

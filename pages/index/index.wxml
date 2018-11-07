@@ -1,0 +1,38 @@
+<view id='page'>
+  <view id='box'>
+    <view class='search-wrap flex bg-white'>
+      <image src='/images/sousuo.png'></image>
+      <input name='shopName' value='{{shopName}}' placeholder='输入商户名找优惠' bindinput='inputShopName'></input>
+    </view>
+    <scroll-view scroll-x="true" class="tab-h bg-white'" scroll-left="{{scrollLeft}}">
+      <view class="tab-item {{currentTab==index?'active':''}}" data-current='{{index}}' bindtap="swichNav" wx:for='{{navList}}' wx:key='{{index}}'>{{item}}</view>
+      <!-- <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">推荐</view>
+      <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">餐饮</view>
+      <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">儿童</view>
+      <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">亲子</view>
+      <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">休闲愉快</view>
+      <view class="tab-item {{currentTab==5?'active':''}}" data-current="5" bindtap="swichNav">生活朋友</view>
+      <view class="tab-item {{currentTab==6?'active':''}}" data-current="6" bindtap="swichNav">生活朋友</view>
+      <view class="tab-item {{currentTab==7?'active':''}}" data-current="7" bindtap="swichNav">其他</view> -->
+    </scroll-view>
+    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
+      <swiper-item wx:for="{{[0,1,2,3,4,5,6,7]}}" wx:key='{{index}}'>
+        <scroll-view scroll-y="true" class="scoll-h">
+          <block wx:for="{{[1,2,3,4,5,6,7,8]}}" wx:key="*this">
+            <view class="item-ans">
+              <view class="avatar">
+                <image class="img" src="http://ookzqad11.bkt.clouddn.com/avatar.png"></image>
+              </view>
+              <view class="expertInfo">
+                <view class="name">欢颜</view>
+                <view class="tag">知名情感博主</view>
+                <view class="answerHistory">134个回答，2234人听过 </view>
+              </view>
+              <navigator url="/pages/askExpert/expertDetail" class="askBtn">问TA</navigator>
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>
