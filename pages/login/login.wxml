@@ -7,12 +7,7 @@
     </view>
     <view class='form-wrap'>
       <form>
-        <!-- <view>
-          <text>请输入手机号</text>
-          <input name='phone' type='number' value='{{phoneNumber}}' bindinput='getInputPhoneNumber' maxlength='11' focus='true' placeholder='请输入手机号码'></input>
-        </view> -->
         <view class='login'>
-          <!-- <button type='primary' class='btn' bindtap='login'>验证(输入手机号验证仅用于测试)</button> -->
           <button type='primary' open-type='getPhoneNumber' class='btn' bindgetphonenumber="getPhoneNumber">微信用户快速验证</button>
         </view>
       </form>

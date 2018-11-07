@@ -3,6 +3,7 @@ import {
 } from 'utils/util.js'
 App({
   onLaunch: function() {
+    let globalData = this.globalData;
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -13,6 +14,7 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         if (res.code) {
+          globalData.code=res.code;
           $http({
             url: '/app/getSessionKeyOropenid',
             data: {
@@ -21,7 +23,7 @@ App({
             }
           }).then(data => {
             if (data.success) {
-              this.globalData.sessionId = data.data;
+              globalData.sessionId = data.data;
             } else {
               wx.showModal({
                 title: '提示',
@@ -64,6 +66,7 @@ App({
     userInfo: null,
     sessionId: null,
     userName: null,
-    formData:{}
+    formData:{},
+    code:null
   }
 })

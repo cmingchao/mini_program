@@ -1,5 +1,6 @@
 import {
-  $http
+  $http,
+  getSessionId
 } from '../../utils/util.js';
 let globalData = getApp().globalData;
 Page({
@@ -7,54 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    phoneNumber: ''
-  },
-  //手机号
-  getInputPhoneNumber(e) {
-    this.setData({
-      phoneNumber: e.detail.value
-    })
-  },
-  // 登录
-  login() {
-    let phoneNumber = this.data.phoneNumber.trim(),
-      exp = /^[1][3,4,5,7,8,9][0-9]{9}$/;
-    if (!phoneNumber) {
-      wx.showModal({
-        title: '提示',
-        content: '请输入11位手机号',
-        showCancel: false
-      });
-      return false;
-    } else if (!exp.test(phoneNumber)) {
-      wx.showModal({
-        title: '提示',
-        content: '请输入正确的手机号',
-        showCancel: false
-      });
-      return false;
-    } else {
-      $http({
-        url: '/customerApi/getCustomerByMobile',
-        data: {
-          sessionId: globalData.sessionId
-        },
-        success(res) {
-          let data = res.data;
-          if (data.success) {
-            wx.redirectTo({
-              url: '/pages/mainEntrance/taking/taking'
-            })
-          } else {
-            wx.showModal({
-              title: '提示',
-              content: `验证失败`,
-              showCancel: false
-            })
-          }
-        }
-      })
-    }
+    
   },
   /***获取微信绑定的手机号 */
   getPhoneNumber: function(e) {
@@ -78,8 +32,13 @@ Page({
           wx.showModal({
             title: '提示',
             content: `获取手机号失败，原因：${data.message}`,
-            showCancel: false
-          })
+            showCancel: false,
+            success(res){
+              if(res.confirm){
+                getSessionId();
+              }
+            }
+          });
         }
       })
     } else {

@@ -21,10 +21,9 @@ const $http = params => {
         //       success(res) {
         //         if (res.confirm) {
         //           // 重新登录
-        //           wx.redirectTo({
+        //           wx.reLaunch({
         //             url: '/pages/mainEntrance/index/index'
         //           });
-        //           return false;
         //         }
         //       }
         //     })
@@ -61,11 +60,42 @@ const formDate = () => {
     day = date.getDate();
   let time = year + '-' + month + '-' + day;
   return time;
-}
+};
 const date = formDate();
-
+// 重新登录获取sessionId
+const getSessionId = () => {
+  wx.login({
+    success: res => {
+      if (res.code) {
+        globalData.code = res.code;
+        $http({
+          url: '/app/getSessionKeyOropenid',
+          data: {
+            code: globalData.code,
+            type: 3
+          }
+        }).then(data => {
+          if (data.success) {
+            globalData.sessionId = data.data;
+          } else {
+            wx.showModal({
+              title: '提示',
+              content: `获取sessionId失败，原因：${data.message}`
+            });
+          }
+        });
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: `登录小程序失败，原因：${res.errMsg}`
+        });
+      }
+    }
+  });
+};
 // 导出
 export {
   $http,
-  date
+  date,
+  getSessionId
 }
