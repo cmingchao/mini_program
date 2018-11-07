@@ -1,4 +1,4 @@
-let baseUrl = 'http://192.168.1.128:8089';
+let baseUrl = 'https://mtd.gdwstech.com';
 // 发起请求
 const $http = params => {
   wx.showLoading({

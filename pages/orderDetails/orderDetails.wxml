@@ -9,7 +9,7 @@
       <view class='status text-center font-medium' wx:elif='{{res.serveStatus===6}}'>送货完成</view>
       <view class='status text-center font-medium' wx:elif='{{res.serveStatus===7}}'>已取消</view>
       <view class='status text-center font-medium' wx:elif='{{res.serveStatus===8}}'>已自提</view>
-      <view class='status text-center font-medium' wx:else='{{res.serveStatus===9}}'>超时失败</view>
+      <view class='status text-center font-medium' wx:elif='{{res.serveStatus===9}}'>超时失败</view>
       <view wx:if="{{code}}">
         <text>取货码：</text>
         <text>{{code}}</text>
