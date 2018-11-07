@@ -1,32 +1,15 @@
 const globalData = getApp().globalData;
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-}
-
-const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
-}
-
 // 发起请求
 const ajaxPost = paramsObj => {
   wx.showLoading({
     title: '加载中',
-    mask: true  //是否显示透明蒙层，防止触摸穿透
+    mask: true //是否显示透明蒙层，防止触摸穿透
   });
   wx.request({
     method: paramsObj.type || 'GET',
     url: globalData.baseUrl + paramsObj.url,
     data: paramsObj.data || {},
     success(res) {
-      wx.hideLoading();
       //登录已过期
       if (res.data.message == 'Unauthorized') {
         wx.showModal({
@@ -36,44 +19,10 @@ const ajaxPost = paramsObj => {
           success(res) {
             if (res.confirm) {
               // 重新登录
-              wx.redirectTo({
+              wx.reLaunch({
                 url: '/pages/mainEntrance/index/index',
                 success() {
-                  wx.login({
-                    success: res => {
-                      if (res.code) {
-                        wx.request({
-                          url: globalData.baseUrl + '/app/getSessionKeyOropenid',
-                          data: {
-                            code: res.code,
-                            type: 2
-                          },
-                          success(res) {
-                            let data = res.data;
-                            if (data.success) {
-                              globalData.sessionId = data.data;
-                            } else {
-                              wx.showModal({
-                                title: '提示',
-                                content: `获取sessionId失败，原因：${data.message}`
-                              })
-                            }
-                          },
-                          fail(err) {
-                            wx.showModal({
-                              title: '提示',
-                              content: `获取sessionId失败，原因：${err.errMsg}`
-                            })
-                          }
-                        })
-                      } else {
-                        wx.showModal({
-                          title: '提示',
-                          content: `登录失败，原因：${res.errMsg}`
-                        })
-                      }
-                    }
-                  });
+                  getSessionId();
                 }
               })
             }
@@ -84,7 +33,6 @@ const ajaxPost = paramsObj => {
       else paramsObj.success(res);
     },
     fail(err) {
-      wx.hideLoading();
       if (paramsObj.fail) {
         paramsObj.fail(err);
       } else {
@@ -94,9 +42,12 @@ const ajaxPost = paramsObj => {
           showCancel: false
         })
       }
+    },
+    complete() {
+      wx.hideLoading();
     }
   })
-}
+};
 
 // 获取当日配送统计数据
 const getDeliverCount = (that) => {
@@ -127,9 +78,48 @@ const getDeliverCount = (that) => {
     }
   })
 }
+// 重新登录获取sessionId
+const getSessionId = () => {
+  wx.login({
+    success: res => {
+      if (res.code) {
+        globalData.code = res.code;
+        wx.request({
+          url: globalData.baseUrl + '/app/getSessionKeyOropenid',
+          data: {
+            code: res.code,
+            type: 2
+          },
+          success(res) {
+            let data = res.data;
+            if (data.success) {
+              globalData.sessionId = data.data;
+            } else {
+              wx.showModal({
+                title: '提示',
+                content: `获取sessionId失败，原因：${data.message}`
+              })
+            }
+          },
+          fail(err) {
+            wx.showModal({
+              title: '提示',
+              content: `获取sessionId失败，原因：${err.errMsg}`
+            })
+          }
+        })
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: `登录失败，原因：${res.errMsg}`
+        })
+      }
+    }
+  });
+};
 // 导出
 export default {
-  formatTime,
   ajaxPost,
-  getDeliverCount
+  getDeliverCount,
+  getSessionId
 }

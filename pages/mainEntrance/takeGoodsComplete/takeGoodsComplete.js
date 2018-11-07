@@ -62,8 +62,8 @@ Page({
         "pageSize": that.data.pageSize,
         "search": {
           "isDeliverServeList": 2,
-          "startDeliveryTime": !date ? '' : date + ' 00:00:00',
-          "endDeliveryTime": !date ? '' : date + ' 23:59:59'
+          "startCreateTime": !date ? '' : date + ' 00:00:00',
+          "endCreateTime": !date ? '' : date + ' 23:59:59'
         }
       },
       success(res) {

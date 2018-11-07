@@ -1,61 +1,14 @@
 import util from '../../../utils/util.js';
 const ajaxPost = util.ajaxPost;
+const getSessionId = util.getSessionId;
 const globalData = getApp().globalData;
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    phoneNumber: ''
+
   },
-  //手机号
-  getInputPhoneNumber(e) {
-    this.setData({
-      phoneNumber: e.detail.value
-    })
-  },
-  //登录
-  // login() {
-  //   let phoneNumber = this.data.phoneNumber.trim(),
-  //     exp = /^[1][3,4,5,7,8][0-9]{9}$/;
-  //   if (!phoneNumber) {
-  //     wx.showModal({
-  //       title: '提示',
-  //       content: '请输入11位手机号',
-  //       showCancel: false
-  //     });
-  //     return false;
-  //   } else if (!exp.test(phoneNumber)) {
-  //     wx.showModal({
-  //       title: '提示',
-  //       content: '手机号输入非法!',
-  //       showCancel: false
-  //     });
-  //     return false;
-  //   } else {
-  //     ajaxPost({
-  //       url: '/deliverApi/getDeliverByMobile',
-  //       data: {
-  //         mobile: phoneNumber
-  //       },
-  //       success(res) {
-  //         if (!res.data.success) {
-  //           wx.showModal({
-  //             title: '提示',
-  //             content: `验证失败，原因:${res.data.message || '未知'}`,
-  //             showCancel: false
-  //           })
-  //         } else {
-  //           globalData.userId = +res.data.str; //配送员id
-  //           globalData.token = res.data.data; //配送员token
-  //           wx.redirectTo({
-  //             url: '/pages/mainEntrance/waitTakeGoods/waitTakeGoods',
-  //           })
-  //         }
-  //       }
-  //     })
-  //   }
-  // },
   // 获取微信用户绑定的手机号
   getPhoneNumber: function(e) {
     // console.log(e);
@@ -79,47 +32,14 @@ Page({
             wx.showModal({
               title: '提示',
               content: `获取手机号失败，原因：${data.message || '未知'}`,
-              showCancel: false
-            })
+              showCancel: false,
+              success(res) {
+                if (res.confirm) {
+                  getSessionId();
+                }
+              }
+            });
           }
-          // let phoneNumber = res.data.phoneNumber;
-          // //验证手机号
-          // if (phoneNumber) {
-          //   ajaxPost({
-          //     url: '/deliverApi/getDeliverByMobile',
-          //     data: {
-          //       mobile: phoneNumber
-          //     },
-          //     success(res) {
-          //       if (!res.data.success) {
-          //         wx.showModal({
-          //           title: '提示',
-          //           content: `验证失败，原因：${res.data.message || '未知'}`,
-          //           showCancel: false
-          //         })
-          //       } else {
-          //         globalData.userId = +res.data.str; //配送员id
-          //         globalData.token = res.data.data; //配送员token
-          //         wx.redirectTo({
-          //           url: '/pages/mainEntrance/waitTakeGoods/waitTakeGoods',
-          //         })
-          //       }
-          //     },
-          //     fail(err) {
-          //       wx.showModal({
-          //         title: '提示',
-          //         content: `验证失败，原因:${err.errMsg || '未知'}`,
-          //         showCancel: false
-          //       })
-          //     }
-          //   })
-          // } else {
-          //   // wx.showModal({
-          //   //   title: '提示',
-          //   //   content: `获取手机号失败，原因：${res.data.message || '未知'}`,
-          //   //   showCancel: false
-          //   // })
-          // }
         },
         fail(err) {
           wx.showModal({

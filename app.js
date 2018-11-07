@@ -1,4 +1,4 @@
-let httpUrl ='httP://192.168.1.128:8089'; //内测
+let httpUrl ='http://192.168.1.128:8089'; //内测
 // let httpUrl = 'https://wh.gdwstech.com/'; //线上
 App({
   // 小程序启动之后 触发
@@ -14,6 +14,7 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         if (res.code) {
+          globalData.code=res.code;
           wx.request({
             url: httpUrl + '/app/getSessionKeyOropenid',
             data: {
@@ -37,7 +38,7 @@ App({
                 content: `获取sessionId失败，原因：${err.errMsg}`
               })
             }
-          })
+          });
         } else {
           wx.showModal({
             title: '提示',
@@ -76,6 +77,7 @@ App({
   globalData: {
     userInfo: null,
     baseUrl: httpUrl,
-    sessionId: null
+    sessionId: null,
+    code:null
   }
 })
