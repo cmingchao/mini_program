@@ -166,7 +166,7 @@ Page({
   },
   //通过服务单号搜索
   handleSearch(e) {
-    let value = e.detail.value;
+    let value = e.detail.value.trim();
     if (value !== '') value=+value;
     this.setData({
       'formData.current': 1,

@@ -1,7 +1,7 @@
 <view id='page'>
   <view id='box'>
     <view class='search-wrap bg-white'>
-      <input value='{{formData.search.serveNumber}}' placeholder='请输入服务单号' bindconfirm='handleSearch'></input>
+      <input value="{{formData.search.serveNumber || ''}}" placeholder='请输入服务单号' bindconfirm='handleSearch'></input>
       <image src='/images/search-yellow.png'></image>
     </view>
     <view class='header bg-white'>
