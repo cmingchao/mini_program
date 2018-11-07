@@ -1,60 +1,14 @@
 import util from '../../../utils/util.js';
 const ajaxPost = util.ajaxPost,
+  getSessionId = util.getSessionId,
   globalData = getApp().globalData;
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    phoneNumber: ''
+    
   },
-  //手机号
-  getInputPhoneNumber(e) {
-    this.setData({
-      phoneNumber: e.detail.value
-    })
-  },
-  //登录
-  // login() {
-  //   let phoneNumber = this.data.phoneNumber.trim(),
-  //     exp = /^[1][3,4,5,7,8,9][0-9]{9}$/;
-  //   if (!phoneNumber) {
-  //     wx.showModal({
-  //       title: '提示',
-  //       content: '请输入11位手机号',
-  //       showCancel: false
-  //     });
-  //     return false;
-  //   } else if (!exp.test(phoneNumber)) {
-  //     wx.showModal({
-  //       title: '提示',
-  //       content: '手机号输入非法!',
-  //       showCancel: false
-  //     });
-  //     return false;
-  //   } else {
-  //     ajaxPost({
-  //       url: '/customerApi/getCustomerByMobile',
-  //       data: {
-  //         sessionId: globalData.sessionId
-  //       },
-  //       success(res) {
-  //         let data = res.data;
-  //         if (data.success) {
-  //           wx.redirectTo({
-  //             url: '/pages/mainEntrance/taking/taking'
-  //           })
-  //         } else {
-  //           wx.showModal({
-  //             title: '提示',
-  //             content: `验证失败`,
-  //             showCancel: false
-  //           })
-  //         }
-  //       }
-  //     })
-  //   }
-  // },
   /***获取微信绑定的手机号 */
   getPhoneNumber: function(e) {
     // console.log(e)
@@ -68,50 +22,24 @@ Page({
           encryptedData: e.detail.encryptedData
         },
         success(res) {
-          // console.log(res);
+          console.log(res);
           let data = res.data;
           if (data.success) {
             wx.redirectTo({
               url: '/pages/mainEntrance/taking/taking'
-            })
+            });
           } else {
             wx.showModal({
               title: '提示',
-              content: `获取手机号失败，原因：${data.message || '未知'}`,
-              showCancel: false
-            })
+              content: `获取手机号失败，原因：${data.message}`,
+              showCancel: false,
+              success(res){
+                if(res.confirm){
+                  getSessionId();
+                }
+              }
+            });
           }
-          // let phoneNumber = res.data.phoneNumber;
-          // if (phoneNumber) {
-          //   ajaxPost({
-          //     url: '/customerApi/getCustomerByMobile',
-          //     data: {
-          //       mobile: phoneNumber
-          //     },
-          //     success(res) {
-          //       if (!res.data.success) {
-          //         wx.showModal({
-          //           title: '提示',
-          //           content: `验证失败，原因：${res.data.message || '未知'}`,
-          //           showCancel: false
-          //         })
-          //       } else {
-          //         globalData.phoneNumber = phoneNumber;
-          //         globalData.userId = +res.data.str; //配送员id
-          //         globalData.token = res.data.data; //配送员token
-          //         wx.redirectTo({
-          //           url: '/pages/mainEntrance/taking/taking',
-          //         })
-          //       }
-          //     }
-          //   })
-          // } else {
-          //   // wx.showModal({
-          //   //   title: '提示',
-          //   //   content: `获取手机号失败，原因：${res.data.message || '未知'}`,
-          //   //   showCancel: false
-          //   // })
-          // }
         },
         fail(err) {
           wx.showModal({
@@ -130,8 +58,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log()
-
+    
   },
 
   /**

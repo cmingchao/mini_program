@@ -1,10 +1,8 @@
-let httpUrl ='http://47.105.70.252'; //内测
+let httpUrl = 'http://192.168.1.128:8089'; //内测
 // let httpUrl = 'https://wh.gdwstech.com/'; //线上
 App({
-  onLaunch: function () {
-    let that = this,
-      globalData = that.globalData;
-
+  onLaunch: function() {
+    let globalData = this.globalData;
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -14,23 +12,24 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        if(res.code){
+        if (res.code) {
+          globalData.code = res.code;
           wx.request({
-            url: httpUrl+'/app/getSessionKeyOropenid',
+            url: httpUrl + '/app/getSessionKeyOropenid',
             data: {
               code: res.code,
-              type:1
+              type: 1
             },
             success(res) {
-              let data=res.data;
-              if (data.success){
-                globalData.sessionId=data.data;
-              }else{
+              let data = res.data;
+              if (data.success) {
+                globalData.sessionId = data.data;
+              } else {
                 wx.showModal({
                   title: '提示',
                   content: `获取sessionId失败，原因：${data.message}`
                 })
-              } 
+              }
             },
             fail(err) {
               wx.showModal({
@@ -38,8 +37,8 @@ App({
                 content: `获取sessionId失败，原因：${err.errMsg}`
               })
             }
-          })
-        }else{
+          });
+        } else {
           wx.showModal({
             title: '提示',
             content: `登录失败，原因：${res.errMsg}`
@@ -70,8 +69,8 @@ App({
   },
   //全局数据
   globalData: {
-    userInfo: null,
+    code: null,
     baseUrl: httpUrl,
-    sessionId:null
+    sessionId: null
   }
 })

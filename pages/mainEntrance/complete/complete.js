@@ -31,7 +31,7 @@ Page({
           let list_new = [...that.data.list, ...records];
           that.setData({
             list: list_new
-          })
+          });
         }
       }
     })
