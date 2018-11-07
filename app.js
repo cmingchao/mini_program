@@ -1,5 +1,5 @@
-// let httpUrl = 'http://192.168.1.128:8089'; //内测
-let httpUrl = 'https://mtd.gdwstech.com/'; //线上
+// let httpUrl = 'http://192.168.1.121:8089'; //内测
+let httpUrl = 'https://mtd.gdwstech.com'; //线上
 App({
   onLaunch: function() {
     let globalData = this.globalData;
