@@ -1,5 +1,5 @@
-let baseUrl = 'http://192.168.1.121:8089';
-// let baseUrl = 'https://mtd.gdwstech.com';
+// let baseUrl = 'http://192.168.1.121:8089';
+let baseUrl = 'https://mtd.gdwstech.com';
 // 发起请求
 const $http = params => {
   wx.showLoading({
@@ -65,34 +65,35 @@ const formDate = () => {
 const date = formDate();
 // 重新登录获取sessionId
 const getSessionId = () => {
-  wx.login({
-    success: res => {
-      if (res.code) {
-        globalData.code = res.code;
-        $http({
-          url: '/app/getSessionKeyOropenid',
-          data: {
-            code: res.code,
-            type: 3
-          }
-        }).then(data => {
-          if (data.success) {
-            globalData.sessionId = data.data;
-          } else {
-            wx.showModal({
-              title: '提示',
-              content: `获取sessionId失败，原因：${data.message}`
-            });
-          }
-        });
-      } else {
-        wx.showModal({
-          title: '提示',
-          content: `登录小程序失败，原因：${res.errMsg}`
-        });
-      }
-    }
-  });
+  // console.log(111111)
+  // wx.login({
+  //   success: res => {
+  //     if (res.code) {
+  //       globalData.code = res.code;
+  //       $http({
+  //         url: '/app/getSessionKeyOropenid',
+  //         data: {
+  //           code: res.code,
+  //           type: 3
+  //         }
+  //       }).then(data => {
+  //         if (data.success) {
+  //           globalData.sessionId = data.data;
+  //         } else {
+  //           wx.showModal({
+  //             title: '提示',
+  //             content: `获取sessionId失败，原因：${data.message}`
+  //           });
+  //         }
+  //       });
+  //     } else {
+  //       wx.showModal({
+  //         title: '提示',
+  //         content: `登录小程序失败，原因：${res.errMsg}`
+  //       });
+  //     }
+  //   }
+  // });
 };
 // 导出
 export {

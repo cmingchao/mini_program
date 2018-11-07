@@ -52,7 +52,8 @@
         </label>
         <label class='form-item'>
           <text>取消备注：</text>
-          <textarea name='remarks' auto-height bindInput="handleRemarksChange" value='{{formData2.remarks}}' placeholder="请输入备注信息" />
+          <!-- <textarea name='remarks' auto-height bindInput="handleRemarksChange" value='{{formData2.remarks}}' placeholder="请输入备注信息" /> -->
+          <input class='remarks' name='remarks' bindinput="handleRemarksChange" value='{{formData2.remarks}}' placeholder="请输入备注信息"></input>
         </label>
       </view>
       <view class='modal-footer'>

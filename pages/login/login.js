@@ -12,7 +12,7 @@ Page({
   },
   /***获取微信绑定的手机号 */
   getPhoneNumber: function(e) {
-    // console.log(e)
+    console.log(e)
     // 同意获取手机号
     if (e.detail.encryptedData) {
       $http({
@@ -35,7 +35,34 @@ Page({
             showCancel: false,
             success(res){
               if(res.confirm){
-                getSessionId();
+                wx.login({
+                  success: res => {
+                    if (res.code) {
+                      globalData.code = res.code;
+                      $http({
+                        url: '/app/getSessionKeyOropenid',
+                        data: {
+                          code: res.code,
+                          type: 3
+                        }
+                      }).then(data => {
+                        if (data.success) {
+                          globalData.sessionId = data.data;
+                        } else {
+                          wx.showModal({
+                            title: '提示',
+                            content: `获取sessionId失败，原因：${data.message}`
+                          });
+                        }
+                      });
+                    } else {
+                      wx.showModal({
+                        title: '提示',
+                        content: `登录小程序失败，原因：${res.errMsg}`
+                      });
+                    }
+                  }
+                });
               }
             }
           });

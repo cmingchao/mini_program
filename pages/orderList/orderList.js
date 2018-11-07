@@ -96,6 +96,12 @@ Page({
       'formData2.cancelReason': +e.detail.value
     });
   },
+  
+  handleRemarksChange(e) {
+    this.setData({
+      'formData2.remarks': e.detail.value
+    });
+  },
   //确定删除
   handleConfirmDelete() {
     let that = this;
@@ -160,10 +166,12 @@ Page({
   },
   //通过服务单号搜索
   handleSearch(e) {
+    let value = e.detail.value;
+    if (value !== '') value=+value;
     this.setData({
       'formData.current': 1,
       'list':[],
-      'formData.search.serveNumber': +e.detail.value
+      'formData.search.serveNumber': value
     });
     this.getServePageList();
   },

@@ -171,3 +171,6 @@
 #dialog .modal-footer .confirm{
   color: #ffb30f;
 }
+#dialog .modal-content .form-item input.remarks{
+  min-height: 80rpx;
+}
