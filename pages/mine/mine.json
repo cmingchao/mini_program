@@ -1,7 +1,6 @@
 {
   "navigationBarTitleText": "我的",
   "usingComponents": {
-    "ticketItem": "../components/ticketItem/ticketItem",
-    "shopItem": "../components/shopItem/shopItem"
+    "ticketItem": "../components/ticketItem/ticketItem"
   }
 }

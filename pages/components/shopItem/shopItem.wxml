@@ -1,13 +1,15 @@
-<view class='shop-item'>
-  <text class='index'>1</text>
-  <view class='logo'>
-    <image src='/images/dianpu1.png'></image>
-  </view>
-  <view class='info'>
-    <view class='title'>68元单人下午茶套餐</view>
-    <view class='num'>
-      <text>当前活动数量：</text>
-      <text>5</text>
+<view class='shop-item-wrap'>
+  <view class='shop-item'>
+    <text class='index'>{{index+1}}</text>
+    <view class='logo'>
+      <image src='{{res.img}}'></image>
+    </view>
+    <view class='info'>
+      <view class='title'>{{res.title}}</view>
+      <view class='num'>
+        <text>当前活动数量：</text>
+        <text>{{res.num}}</text>
+      </view>
     </view>
   </view>
 </view>

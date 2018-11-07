@@ -1,8 +1,17 @@
 <view id='page'>
   <view id='box'>
-    <ticketItem></ticketItem>
-    <ticketItem></ticketItem>
-    <shopItem></shopItem>
-    <shopItem></shopItem>
+    <scroll-view scroll-x="true" class="tab-h bg-white'" scroll-left="{{scrollLeft}}">
+      <view class="tab-item {{currentTab==index?'active':''}}" data-current='{{index}}' bindtap="swichNav" wx:for='{{navList}}' wx:key='{{index}}'>{{item}}</view>
+    </scroll-view>
+    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
+      <swiper-item wx:for="{{navList}}" wx:key='{{index}}'>
+        <scroll-view scroll-y="true" class="scoll-h">
+          <block wx:for="{{list}}" wx:key="{{index}}">
+            <shopItem wx:if='{{currentTab===3}}' res='{{item}}' index='{{index}}'></shopItem>
+            <ticketItem res='{{item}}' wx:else></ticketItem>
+          </block>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
   </view>
 </view>

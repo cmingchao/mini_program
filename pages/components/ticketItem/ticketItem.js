@@ -15,7 +15,7 @@ Component({
         // 通常 newVal 就是新设置的数据， oldVal 是旧数据
       }
     },
-    value: Object // 简化的定义方式
+    res: Object // 简化的定义方式
   },
 
   /**
@@ -29,6 +29,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    goDetails(){
+      console.log("跳转到详情页面");
+    }
   }
 })
