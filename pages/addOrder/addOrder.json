@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "新增订单",
   "usingComponents": {
     "footer": "/pages/components/footer/footer"
   }
