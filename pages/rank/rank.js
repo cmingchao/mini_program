@@ -1,3 +1,7 @@
+import {
+  getHeight,
+  $http
+} from '../../utils/util.js';
 Page({
 
   /**
@@ -5,33 +9,17 @@ Page({
    */
   data: {
     navList: ['今日核销', '今日优惠', '今日领取','店铺热度'], //导航列表
-    winHeight: "", //窗口高度
+    height: getHeight(), //高度
     currentTab: 0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
-    //假数据
-    list: [
-      {
-        img: "/images/tu.png",
-        title: "68元单人下午茶套餐",
-        shopName: "长岛咖啡",
-        deadline: '2018-12-29',
-        num: 18
-      },
-      {
-        img: "/images/tu.png",
-        title: "68元单人下午茶套餐",
-        shopName: "长岛咖啡",
-        deadline: '2018-12-29',
-        num: 18
-      },
-      {
-        img: "/images/tu.png",
-        title: "68元单人下午茶套餐",
-        shopName: "长岛咖啡",
-        deadline: '2018-12-29',
-        num: 18
-      }
-    ]
+    //数据
+    list: new Array(8).fill({
+      img: '/images/tu.png',
+      title: '68元单人下午茶套餐',
+      shopName: '长岛咖啡',
+      deadline: '2019-03-12',
+      num: 8
+    })
   },
   // 滚动切换标签样式
   switchTab: function (e) {
@@ -67,19 +55,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that = this;
-    //  高度自适应
-    wx.getSystemInfo({
-      success: function (res) {
-        let clientHeight = res.windowHeight,
-          clientWidth = res.windowWidth,
-          rpxR = 750 / clientWidth;
-        let calc = clientHeight * rpxR - 90;
-        that.setData({
-          winHeight: calc
-        });
-      }
-    });
+
   },
 
   /**

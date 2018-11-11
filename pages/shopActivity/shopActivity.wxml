@@ -1,0 +1,86 @@
+<view id='page'>
+  <view id='box'>
+    <carousel imgList='{{imgList}}'></carousel>
+    <view class='details'>
+      <view class='info-item info-item-1'>
+        <view class='info'>
+          <view class='title'>上岛咖啡</view>
+          <view class='text'>
+            <text>地址：</text>
+            <text>九茹村小天北街69号（华西医院）</text>
+          </view>
+          <view class='text'>
+            <text>电话：</text>
+            <text>18780254178</text>
+          </view>
+        </view>
+        <image src='/images/dianhua.png' data-phoneNumber="{{'18780254178'}}" bindtap='makePhoneCall'></image>
+      </view>
+    </view>
+    <view class='shop-activity'>
+      <view class='name flex'>
+        <image src='/images/huodong.png'></image>
+        <text>店铺活动</text>
+      </view>
+      <view class='activity-item' wx:for='{{shopActivityList}}' wx:key='{{index}}'>
+        <view class='info'>
+          <view class='title'>{{item.title}}</view>
+          <view class='text deadline'>
+            <text>有效期至{{item.deadline}}</text>
+          </view>
+          <view class='text num'>
+            <text>已售{{item.num}}</text>
+            <button plain='true' hover-class='none' bindtap='showModal'>活动详情 ></button>
+          </view>
+        </view>
+        <button class='btn' plain='true' hover-class='none' bindtap='receive'>立即领取</button>
+      </view>
+    </view>
+  </view>
+  <!--详情区域  -->
+  <view class='mask-layer' wx:if="{{showModal}}" bindtap='hideModal'></view>
+  <view class='modal' wx:if='{{showModal}}' animation="{{animationData}}">
+    <view class='details'>
+      <view class='info-item info-item-1'>
+        <view class='info'>
+          <view class='title'>66元单人下午茶套餐1份</view>
+        </view>
+        <image src='/images/quxiao.png' class='close' bindtap='hideModal'></image>
+      </view>
+      <scroll-view scroll-y>
+        <view class='info-item'>
+          <view class='info'>
+            <view class='title'>亮点</view>
+            <view class='text'>
+              <text>任意饮品X1+当日甜品X1（饮品限42元及以下）</text>
+            </view>
+            <view class='text'>
+              <text>免费提供餐巾纸</text>
+            </view>
+          </view>
+        </view>
+        <view class='info-item'>
+          <view class='info'>
+            <view class='title'>使用提示</view>
+            <view class='text'>
+              <text>有效期：</text>
+              <text>2018-01-01至2018-03-31</text>
+            </view>
+            <view class='text'>
+              <text>使用时段：</text>
+              <text>9:00:00-22:00:00</text>
+            </view>
+            <view class='text'>
+              <text>每个用户可购买（领取）1份</text>
+            </view>
+            <view class='text'>
+              <text>温馨提示：</text>
+              <text>消费时，请向店员提供电子券，核销后方能享受此活动。除此之外:组件slot内部的东西在列表渲染里只能被渲染一次，-需求的场景描述（希望解决的问题）项目里有很多上划刷新的列表，所以我做了一个列表组件，然后在列表的循环体里面放了...组件slot内部的东西在列表渲染里只能被渲染一次，-需求的场景描述（希望解决的问题）项目里有很多上划刷新的列表，所以我做了一个列表组件，然后在列表的循环体里面放了</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+      <button class='receive' plain='true' hover-class='none' bindtap='receive'>立即领取</button>
+    </view>
+  </view>
+</view>

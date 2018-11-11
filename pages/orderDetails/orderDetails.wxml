@@ -1,0 +1,58 @@
+<view id='page'>
+  <view id='box'>
+    <carousel imgList='{{imgList}}'></carousel>
+    <view class='details'>
+      <view class='info-item info-item-1'>
+        <view class='info'>
+          <view class='title'>66元单人下午茶套餐1份</view>
+          <view class='shop flex'>
+            <image class='shop-icon' src='/images/dianpu.png'></image>
+            <text>长岛咖啡</text>
+          </view>
+        </view>
+        <navigator url='/pages/activityDetails/activityDetails' open-type='navigate' hover-class="none">查看活动</navigator>
+      </view>
+      <view class='info-item info-item-2'>
+        <view class='info'>
+          <view class='title'>已核销</view>
+          <view class='text'>
+            <text>消费码：</text>
+            <text class='verified'>1225555878</text>
+          </view>
+        </view>
+        <image src='/images/quanma.png'></image>
+      </view>
+      <view class='info-item'>
+        <view class='info'>
+          <view class='title'>订单信息</view>
+          <view class='text'>
+            <text>订单编号：</text>
+            <text>1225555878</text>
+          </view>
+          <view class='text'>
+            <text>领取时间：</text>
+            <text>1225555878</text>
+          </view>
+          <view class='text'>
+            <text>有效期：</text>
+            <text>2018-01-01至2018-03-12</text>
+          </view>
+        </view>
+      </view>
+      <view class='info-item'>
+        <view class='info'>
+          <view class='title'>商家信息</view>
+          <view class='text'>
+            <text>地址：</text>
+            <text>九茹村小天北街69号（华西医院）</text>
+          </view>
+          <view class='text'>
+            <text>电话：</text>
+            <text>18780254178</text>
+          </view>
+        </view>
+        <image src='/images/dianhua.png' data-phoneNumber="{{'18780254178'}}" bindtap='makePhoneCall'></image>
+      </view>
+    </view>
+  </view>
+</view>

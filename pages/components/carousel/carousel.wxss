@@ -1,0 +1,3 @@
+.carousel swiper{
+  height: 400rpx;
+}

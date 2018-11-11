@@ -1,0 +1,30 @@
+<view id='page'>
+  <view id='box'>
+    <view class='status flex bg-white'>
+      <image src='/images/cg.png'></image>
+      <text class='status-text'>领取成功</text>
+      <text class='tips'>向商家出示券码或二维码即可消费</text>
+    </view>
+    <view class='ticket-code flex bg-white'>
+      <view class='shop flex'>
+        <image src='/images/dianpu.png'></image>
+        <text>长岛咖啡</text>
+        <text>66元单人下午茶套餐</text>
+      </view>
+      <view class='ticket'>
+        <image class='bg' src='/images/quanma_bg.png'></image>
+        <text class='code'>8323754138</text>
+        <view class='QR-code flex'>
+          <image src='/images/quanma.png'></image>
+          <text>券码</text>
+        </view>
+      </view>
+      <button plain='true' hover-class='none' class='btn' bindtap='checkOrder'>查看订单</button>
+    </view>
+    <view class='recommend'>
+      <view class='title'>— 为您推荐 —</view>
+      <ticketItem></ticketItem>
+      <ticketItem></ticketItem>
+    </view>
+  </view>
+</view>

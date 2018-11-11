@@ -1,0 +1,87 @@
+#box{
+  min-height: 100vh;
+}
+.status{
+  padding: 30rpx;
+  flex-direction: column;
+  align-items: center;
+}
+.status image{
+  width: 90rpx;
+  height: 90rpx;
+}
+.status .status-text{
+  font-weight: bold;
+  font-size: 34rpx;
+  margin-top: 20rpx;
+} 
+.status .tips{
+  margin-top: 24rpx;
+  color: #999;
+}
+.ticket-code{
+  padding: 30rpx;
+  flex-direction: column;
+  margin-top: 30rpx;
+}
+.ticket-code .shop{
+  align-items: center;
+  color: #666;
+}
+.ticket-code .shop image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.ticket-code .shop text{
+  padding:0 15rpx;
+}
+.ticket-code .ticket{
+  margin-top: 30rpx;
+  position: relative;
+  width: 100%;
+  height: 144rpx;
+}
+.ticket-code .ticket .bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.ticket-code .ticket .code{
+  position: absolute;
+  top: 50%;
+  left:45rpx;
+  color: #8C7EEC;
+  font-size: 64rpx;
+  transform: translateY(-50%);
+  font-weight: bold;
+}
+.ticket-code .ticket .QR-code{
+  position: absolute;
+  top: 50%;
+  right:45rpx;
+  transform: translateY(-50%);
+  flex-direction: column;
+  align-items: center;
+}
+.ticket-code .ticket .QR-code image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-bottom: 4rpx;
+}
+.ticket-code .btn{
+  width: 100%;
+  background-color: #8C7EEC;
+  color: #fff;
+  border-radius: 40rpx;
+  height: 80rpx;
+  border: none;
+  margin-top: 20rpx;
+}
+.recommend{
+  padding: 30rpx 0;
+}
+.recommend .title{
+  margin-bottom: 30rpx;
+  text-align: center;
+  font-size: 30rpx;
+}

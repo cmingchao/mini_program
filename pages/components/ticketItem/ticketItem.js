@@ -15,7 +15,17 @@ Component({
         // 通常 newVal 就是新设置的数据， oldVal 是旧数据
       }
     },
-    res: Object // 简化的定义方式
+    res: {
+      type: Object,
+      value:{
+        img:'/images/tu.png',
+        title:'68元单人下午茶套餐',
+        shopName:'长岛咖啡',
+        deadline:'2019-03-12',
+        num:8
+      }
+    },
+    url: String  //页面路径
   },
 
   /**
@@ -30,7 +40,16 @@ Component({
    */
   methods: {
     goDetails(){
-      console.log("跳转到详情页面");
+      let url=this.data.url;
+      if (url==='index'){
+        wx.navigateTo({
+          url: '/pages/activityDetails/activityDetails',
+        });
+      }else{
+        wx.navigateTo({
+          url: '/pages/orderDetails/orderDetails',
+        });
+      }
     }
   }
 })

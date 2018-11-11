@@ -1,45 +1,13 @@
+@import '/css/swiper.wxss';
+
 .tab-h {
-  height: 90rpx;
-  width: 100%;
-  box-sizing: border-box;
-  overflow: hidden;
-  line-height: 90rpx;
-  white-space: nowrap;
-  position: fixed;
-  top: 0rpx;
-  left: 0;
-  z-index: 99;
   padding: 0 8%;
-  border-top: 1rpx solid rgba(153,153,153,.2);
+  top: 0rpx;
 }
 
 .tab-item {
-  color: #555555;
-  display: inline-block;
+  margin: 0;
   width: 33.33%;
   text-align: center;
 }
 
-.tab-item.active {
-  color: #8C7EEC;
-  position: relative;
-}
-
-.tab-item.active:after {
-  content: "";
-  display: block;
-  height: 8rpx;
-  width: 100%;
-  background: #8C7EEC;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  border-radius: 16rpx;
-}
-.tab-content {
-  margin-top: 90rpx;
-}
-.scoll-h {
-  height: 100%;
-  padding-top: 20rpx;
-}

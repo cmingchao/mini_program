@@ -1,10 +1,12 @@
+.ticket-item-wrap{
+  padding-bottom: 20rpx;
+}
 .ticket-item{
   display: flex;
   border-radius: 6rpx;
   position: relative;
   height: 200rpx;
-  width: 90%;
-  margin: 0 auto 20rpx;
+  margin: 0rpx 30rpx;
   background-color: #fff;
   box-shadow: 2px 2rpx 2rpx 2rpx rgba(153,153,153,.5);
 }

@@ -1,0 +1,62 @@
+<view id='page'>
+  <view id='box'>
+    <carousel imgList='{{imgList}}'></carousel>
+    <view class='details'>
+      <view class='info-item info-item-1'>
+        <view class='info'>
+          <view class='title'>66元单人下午茶套餐1份</view>
+          <view class='shop flex'>
+            <image class='shop-icon' src='/images/dianpu.png'></image>
+            <text>长岛咖啡</text>
+          </view>
+        </view>
+      </view>
+      <view class='info-item'>
+        <view class='info'>
+          <view class='title'>亮点</view>
+          <view class='text'>
+            <text>任意饮品X1+当日甜品X1（饮品限42元及以下）</text>
+          </view>
+          <view class='text'>
+            <text>免费提供餐巾纸</text>
+          </view>
+        </view>
+      </view>
+      <view class='info-item'>
+        <view class='info'>
+          <view class='title'>使用提示</view>
+          <view class='text'>
+            <text>有效期：</text>
+            <text>2018-01-01至2018-03-31</text>
+          </view>
+          <view class='text'>
+            <text>使用时段：</text>
+            <text>9:00:00-22:00:00</text>
+          </view>
+          <view class='text'>
+            <text>每个用户可购买（领取）1份</text>
+          </view>
+          <view class='text'>
+            <text>温馨提示：</text>
+            <text>消费时，请向店员提供电子券，核销后方能享受此活动。</text>
+          </view>
+        </view>
+      </view>
+      <view class='info-item'>
+        <view class='info'>
+          <view class='title'>商家信息</view>
+          <view class='text'>
+            <text>地址：</text>
+            <text>九茹村小天北街69号（华西医院）</text>
+          </view>
+          <view class='text'>
+            <text>电话：</text>
+            <text>18780254178</text>
+          </view>
+        </view>
+        <image src='/images/dianhua.png' data-phoneNumber="{{'18780254178'}}" bindtap='makePhoneCall'></image>
+      </view>
+      <button plain='true' hover-class='none' class='receive' bindtap='receive'>立即领取</button>
+    </view>
+  </view>
+</view>

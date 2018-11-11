@@ -1,18 +1,20 @@
-<view class='ticket-item' bindtap='goDetails'>
-  <!-- <image src='/images/bg.png' class='bg'></image> -->
-  <view class='logo'>
-    <image src='{{res.img}}'></image>
-  </view>
-  <view class='info'>
-    <view class='title'>{{res.title}}</view>
-    <view class='shop-name'>
-      <image src='/images/dianpu.png'></image>
-      <text>{{res.shopName}}</text>
+<view class='ticket-item-wrap'>
+  <view class='ticket-item' bindtap='goDetails'>
+    <!-- <image src='/images/bg.png' class='bg'></image> -->
+    <view class='logo'>
+      <image src='{{res.img}}'></image>
     </view>
-    <view class='deadline'>
-      <text>有效期至{{res.deadline}}</text>
-      <text>已售{{res.num}}</text>
+    <view class='info'>
+      <view class='title'>{{res.title}}</view>
+      <view class='shop-name'>
+        <image src='/images/dianpu.png'></image>
+        <text>{{res.shopName}}</text>
+      </view>
+      <view class='deadline'>
+        <text>有效期至{{res.deadline}}</text>
+        <text>已售{{res.num}}</text>
+      </view>
     </view>
+    <slot></slot>
   </view>
-  <slot></slot>
 </view>

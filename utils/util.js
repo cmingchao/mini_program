@@ -54,18 +54,21 @@ const $http = params => {
   });
   return promise;
 };
-const formDate = () => {
-  let date = new Date(),
-    year = date.getFullYear(),
-    month = date.getMonth() + 1,
-    day = date.getDate();
-  let time = year + '-' + month + '-' + day;
-  return time;
+const getHeight = () => {
+  let height=null;
+  //  高度自适应
+  wx.getSystemInfo({
+    success: function(res) {
+      let windowHeight = res.windowHeight, //可使用窗口高度
+        screenWidth = res.screenWidth, //屏幕宽度
+        rpxR = 750 / screenWidth;
+      height = windowHeight * rpxR - 90;
+    }
+  });
+  return height;
 }
-const date = formDate();
-
 // 导出
 export {
   $http,
-  date
+  getHeight
 }

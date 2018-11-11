@@ -1,0 +1,127 @@
+@import '/css/details.wxss';
+
+#box {
+  min-height: 100vh;
+}
+
+.details .info-item-1 .info .title {
+  font-size: 36rpx;
+}
+
+.details .info-item image {
+  position: relative;
+  top: 30rpx;
+}
+
+.shop-activity {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+}
+
+.shop-activity .name {
+  align-items: center;
+  color: #8c7eec;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.shop-activity .name image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 16rpx;
+}
+
+.shop-activity .activity-item {
+  margin-top: 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shop-activity .activity-item .info {
+  flex: 1;
+}
+
+.shop-activity .activity-item .info .title {
+  font-size: 30rpx;
+  color: #010101;
+  font-weight: bold;
+}
+
+.shop-activity .activity-item .info .text {
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.shop-activity .activity-item .info .deadline {
+  color: #0389e9;
+}
+
+.shop-activity .activity-item .info .num {
+  color: #666;
+}
+
+.shop-activity .activity-item .info .num button {
+  margin-left: 10rpx;
+  border-radius: 0;
+  padding: 0 0 0 10rpx;
+  border: none;
+  border-left: 1rpx solid #999;
+  height: 40rpx;
+}
+
+.shop-activity .activity-item .btn {
+  border: none;
+  height: 60rpx;
+  background-color: #8c7eec;
+  color: #fff;
+  border-radius: 30rpx;
+}
+
+/* 遮罩层 */
+
+.mask-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+}
+
+.modal {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  border-radius: 15rpx 15rpx 0 0;
+}
+
+.modal .details {
+  top: 0;
+}
+
+.modal .details .info-item {
+  margin-bottom: 0;
+}
+
+.modal .details .info-item .info .title {
+  margin-bottom: 0rpx;
+  font-weight: bold;
+}
+
+.modal .details .info-item-1 {
+  border-bottom: 1rpx solid rgba(153, 153, 153, 0.2);
+}
+
+.modal .details .info-item-1 .close {
+  width: 30rpx;
+  height: 30rpx;
+  top: 0;
+}
+
+.modal .details scroll-view {
+  height: 570rpx;
+}

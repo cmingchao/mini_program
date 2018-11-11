@@ -12,8 +12,15 @@ Component({
         // 通常 newVal 就是新设置的数据， oldVal 是旧数据
       }
     },
-    res: Object, // 简化的定义方式
-    index: Number
+    res: { 
+      type: Object, 
+      value: {
+        img:'/images/dianpu1.png',
+        title:'北海道日本料理',
+        num:18
+      }
+    },
+    index: Number  //简化的定义方式
   },
 
   /**

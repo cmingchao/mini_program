@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "领取成功",
+  "usingComponents": {
+    "ticketItem": "../components/ticketItem/ticketItem"
+  }
+}
