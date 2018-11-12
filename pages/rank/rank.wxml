@@ -8,8 +8,8 @@
         <scroll-view scroll-y="true" class="scoll-h">
           <view class='list-wrap'>
             <block wx:for="{{list}}" wx:key="{{index}}">
-              <ticketItem res='{{item}}' wx:if='{{currentTab!==3}}'></ticketItem>
-              <shopItem res='{{item}}' index='{{index}}' wx:else></shopItem>
+              <ticketItem res='{{item}}' index='{{index}}' url='rank' wx:if='{{currentTab!==3}}'></ticketItem>
+              <shopItem res='{{item}}' index='{{index}}' url='rank' wx:else></shopItem>
             </block>
           </view>
         </scroll-view>

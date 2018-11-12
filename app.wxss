@@ -6,9 +6,6 @@ button {
   align-items: center;
   font-size: 28rpx;
 }
-input{
-  /* padding-left: 20rpx; */
-}
 
 image {
   width: 100%;
@@ -54,6 +51,5 @@ image {
 }
 
 .noData {
-  margin-top: 20rpx;
   font-size: 30rpx;
 }

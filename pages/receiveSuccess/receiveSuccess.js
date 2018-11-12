@@ -5,7 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    //数据列表
+    list: [
+      {
+        img: '/images/tu.png',
+        title: '68元单人下午茶套餐',
+        shopName: '阿迪达斯',
+        deadline: '2019-12-25',
+        num: 12,
+        id: ''
+      }
+    ]
   },
   //查看订单
   checkOrder(){

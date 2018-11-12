@@ -1,6 +1,6 @@
 <view class='shop-item-wrap'>
-  <view class='shop-item'>
-    <text class='index'>{{index+1}}</text>
+  <view class='shop-item' bindtap='goShopActivity'>
+    <text class='index' wx:if="{{url==='rank'}}">{{index+1}}</text>
     <view class='logo'>
       <image src='{{res.img}}'></image>
     </view>

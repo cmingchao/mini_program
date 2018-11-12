@@ -35,5 +35,6 @@ App({
   },
   globalData: {
     userInfo: null,
+    imgUrl:'http://192.168.1.221/xcx.gdwstech.com/Uploads/'
   }
 })

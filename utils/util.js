@@ -1,4 +1,4 @@
-let baseUrl = 'http://192.168.1.128:8089';
+let baseUrl = 'http://192.168.1.221/xcx.gdwstech.com/index.php?s=/Admin';
 // 发起请求
 const $http = params => {
   wx.showLoading({
@@ -6,7 +6,7 @@ const $http = params => {
   });
   let promise = new Promise((resolve, reject) => {
     wx.request({
-      method: params.type || 'GET',
+      method: params.type || 'POST',
       url: baseUrl + params.url,
       data: params.data || {},
       success(res) {
@@ -54,9 +54,9 @@ const $http = params => {
   });
   return promise;
 };
+//  高度自适应
 const getHeight = () => {
   let height=null;
-  //  高度自适应
   wx.getSystemInfo({
     success: function(res) {
       let windowHeight = res.windowHeight, //可使用窗口高度
@@ -66,9 +66,42 @@ const getHeight = () => {
     }
   });
   return height;
-}
+};
+// 滚动切换标签样式
+const switchTab = (that,e)=>{
+  that.setData({
+    currentTab: e.detail.current
+  });
+  that.checkCor();
+};
+// 点击标题切换当前页时改变样式
+const swichNav = (that,e)=> {
+  let cur = e.target.dataset.current;
+  if (that.data.currentTaB == cur) return false;
+  else {
+    that.setData({
+      currentTab: cur
+    });
+  }
+};
+//判断当前滚动超过一屏时，设置tab标题滚动条。
+const checkCor=that=>{
+  let length = that.data.navList.length;
+  if (that.data.currentTab > 3) {
+    that.setData({
+      scrollLeft: (length - 3) * 100
+    });
+  } else {
+    that.setData({
+      scrollLeft: 0
+    });
+  }
+};
 // 导出
 export {
   $http,
-  getHeight
+  getHeight,
+  switchTab,
+  swichNav,
+  checkCor
 }

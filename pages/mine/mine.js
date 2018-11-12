@@ -1,6 +1,9 @@
 import {
   getHeight,
-  $http
+  $http,
+  switchTab,
+  swichNav,
+  checkCor
 } from '../../utils/util.js';
 Page({
 
@@ -22,34 +25,16 @@ Page({
     })
   },
   // 滚动切换标签样式
-  switchTab: function(e) {
-    this.setData({
-      currentTab: e.detail.current
-    });
-    this.checkCor();
+  switchTab (e) {
+    switchTab(this, e);
   },
   // 点击标题切换当前页时改变样式
-  swichNav: function(e) {
-    let cur = e.target.dataset.current;
-    if (this.data.currentTaB == cur) return false;
-    else {
-      this.setData({
-        currentTab: cur
-      });
-    }
+  swichNav(e) {
+    swichNav(this, e);
   },
   //判断当前滚动超过一屏时，设置tab标题滚动条。
-  checkCor: function() {
-    let length = this.data.navList.length;
-    if (this.data.currentTab > 3) {
-      this.setData({
-        scrollLeft: (length - 3) * 100
-      });
-    } else {
-      this.setData({
-        scrollLeft: 0
-      });
-    }
+  checkCor() {
+    checkCor(this);
   },
   /**
    * 生命周期函数--监听页面加载

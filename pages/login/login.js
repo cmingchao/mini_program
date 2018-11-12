@@ -12,10 +12,10 @@ Page({
       phoneNumber: '',
       validateCode: ''
     },
-    disabled: true,
-    loading: false,
-    disabledCode: true,
-    flag: true,
+    disabled: true, //禁用登录按钮
+    loading: false, //名称前是否带 loading 图标
+    disabledCode: true, //禁用验证码输入框
+    flag: true, //切换获取验证码
     seconds: 10,
   },
   //输入手机号
@@ -24,12 +24,6 @@ Page({
     this.setData({
       'formData.phoneNumber': phoneNumber
     });
-    if (!phoneNumber) {
-      this.setData({
-        disabledCode: true,
-        'formData.validateCode': ''
-      });
-    }
     this.isLogin();
   },
   // 输入验证码
@@ -71,7 +65,7 @@ Page({
     }
     if (!reg.test(formData.phoneNumber)) {
       wx.showToast({
-        title: '请输入正确的手机号',
+        title: '请输入格式正确的手机号',
         icon: 'none'
       });
       return;
@@ -83,16 +77,18 @@ Page({
 
     let timer = setInterval(function() {
       seconds--;
-      that.setData({
-        seconds
-      });
       if (seconds <= 0) {
+        seconds = 0;
         clearInterval(timer);
         that.setData({
           flag: true,
-          seconds: 10
+          seconds
         });
+        return;
       }
+      that.setData({
+        seconds
+      });
     }, 1000);
     // 发送请求获取验证码
     // $http(formData).then(data=>{
@@ -101,29 +97,46 @@ Page({
   },
   //登录
   login(e) {
-
     let that = this;
     let phoneNumber = that.data.formData.phoneNumber;
     let validateCode = that.data.formData.validateCode;
-    // if (!reg.test(phoneNumber)) {
-    //   wx.showToast({
-    //     title: '请输入正确的手机号',
-    //     icon: 'none'
-    //   });
-    //   return;
-    // }
-
+    if (!reg.test(phoneNumber)) {
+      wx.showToast({
+        title: '请输入格式正确的手机号',
+        icon: 'none'
+      });
+      return;
+    }
     //验证通过
     that.setData({
       loading: true
     });
-    wx.switchTab({
-      url: '/pages/index/index'
-    });
     // 发送请求登录
-    // $http(formData).then(data=>{
-
-    // });
+    $http({
+      url: "/UserApi/Login",
+      data: {
+        mobile: phoneNumber,
+        code: '123456'
+      }
+    }).then(data => {
+      if (data.errcode === 0) {
+        that.setData({
+          loading: false
+        });
+        wx.switchTab({
+          url: '/pages/index/index'
+        });
+      } else {
+        that.setData({
+          loading: false
+        });
+        wx.showModal({
+          title: '提示',
+          content: '登录失败，原因：' + data.errmsg,
+          showCancel: false
+        });
+      }
+    });
   },
   /**
    * 生命周期函数--监听页面加载

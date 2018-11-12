@@ -14,13 +14,12 @@ Component({
     },
     res: { 
       type: Object, 
-      value: {
-        img:'/images/dianpu1.png',
-        title:'北海道日本料理',
-        num:18
-      }
+      value: {}
     },
-    index: Number  //简化的定义方式
+    //索引
+    index: Number,  //简化的定义方式
+    //当前页面
+    url:String
   },
 
   /**
@@ -34,6 +33,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    goShopActivity(){
+      let id=this.data.res.id;
+      wx.navigateTo({
+        url: `/pages/shopActivity/shopActivity?id=${id}`
+      });
+    }
   }
 })

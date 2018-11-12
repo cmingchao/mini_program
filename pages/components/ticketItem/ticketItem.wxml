@@ -1,6 +1,6 @@
 <view class='ticket-item-wrap'>
-  <view class='ticket-item' bindtap='goDetails'>
-    <!-- <image src='/images/bg.png' class='bg'></image> -->
+  <view class='ticket-item' bindtap='goActivityDetails'>
+    <text class='index' wx:if="{{url==='rank'}}">{{index+1}}</text>
     <view class='logo'>
       <image src='{{res.img}}'></image>
     </view>

@@ -1,67 +1,139 @@
 import {
   getHeight,
-  $http
+  $http,
+  switchTab,
+  swichNav,
+  checkCor
 } from '../../utils/util.js';
+let globalData = getApp().globalData;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    shopName: '',
-    navList: ['推荐', '餐饮', '儿童亲子', '休闲愉快', '生活朋友', '服装朋友', '自驾游', '其他'], //导航列表
-    height: getHeight()-60, //高度
+    height: getHeight() - 60, //高度
     currentTab: 0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
-    //数据
-    list: new Array(8).fill({
-      img: '/images/tu.png',
-      title: '68元单人下午茶套餐',
-      shopName: '长岛咖啡',
-      deadline: '2019-03-12',
-      num: 8
-    })
+    name: '',
+    id: '', //当前菜单的id
+    //菜单列表
+    navList: [{
+      label: '推荐',
+      value: ''
+    }],
+    //数据列表
+    list: [
+      // {
+      //   img: '',
+      //   title: '',
+      //   shopName: '',
+      //   deadline: '',
+      //   num: '',
+      //   id: ''
+      // }
+    ]
   },
-  inputShopName(e) {
+  inputName(e) {
     this.setData({
-      shopName: e.detail.value
+      name: e.detail.value
     });
+
   },
   // 滚动切换标签样式
-  switchTab: function(e) {
+  switchTab(e) {
+    switchTab(this, e);
+    let currentItemId = +e.detail.currentItemId;
     this.setData({
-      currentTab: e.detail.current
+      id: currentItemId
     });
-    this.checkCor();
+    this.getDataList();
   },
   // 点击标题切换当前页时改变样式
-  swichNav: function(e) {
-    let cur = e.target.dataset.current;
-    if (this.data.currentTaB == cur) return false;
-    else {
-      this.setData({
-        currentTab: cur
-      });
-    }
+  swichNav(e) {
+    swichNav(this, e);
+    let id = +e.currentTarget.dataset.id;
+    if (+this.data.id === id) return false;
+    this.setData({
+      id
+    });
+    this.getDataList();
   },
   //判断当前滚动超过一屏时，设置tab标题滚动条。
-  checkCor: function() {
-    let length = this.data.navList.length;
-    if (this.data.currentTab > 3) {
-      this.setData({
-        scrollLeft: (length - 3) * 100
-      });
-    } else {
-      this.setData({
-        scrollLeft: 0
-      });
-    }
+  checkCor() {
+    checkCor(this);
+  },
+  //获取数据
+  getDataList() {
+    let that = this,
+      id = that.data.id,
+      url = '';
+    that.setData({
+      list: []
+    });
+    if (!id) {
+      url = '/MallApi/getMatrixRecommended'; //推荐
+      id = '';
+    } else url = '';
+    $http({
+      url,
+      data: {
+        id
+      }
+    }).then(data => {
+      if (data.errcode === 0) {
+        let arr = data.data.map(item => {
+          return {
+            img: item.banner1 ? globalData.imgUrl + item.banner : '/images/zanwutupian.jpg',
+            title: item.title,
+            shopName: item.store,
+            deadline: item.grant_end_time,
+            num: item.sum || 0,
+            id: item.id
+          };
+        });
+        that.setData({
+          list: arr
+        });
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: '获取数据列表失败，原因：' + data.errmsg,
+          showCancel: false
+        });
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-   
+    let that = this;
+    //获取菜单列表
+    let navList = that.data.navList;
+    $http({
+      url: '/MallApi/getFormats',
+    }).then(data => {
+      if (data.errcode === 0) {
+        let arr = data.data.map(item => {
+          return {
+            label: item.name,
+            value: item.id
+          };
+        });
+        let new_navList = [...navList, ...arr];
+        that.setData({
+          navList: new_navList
+        });
+        that.getDataList();
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: '获取菜单列表失败，原因：' + data.errmsg,
+          showCancel: false
+        });
+      }
+    })
   },
 
   /**

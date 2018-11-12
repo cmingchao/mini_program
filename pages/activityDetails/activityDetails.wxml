@@ -56,7 +56,7 @@
         </view>
         <image src='/images/dianhua.png' data-phoneNumber="{{'18780254178'}}" bindtap='makePhoneCall'></image>
       </view>
-      <button plain='true' hover-class='none' class='receive' bindtap='receive'>立即领取</button>
+      <!-- <button plain='true' hover-class='none' class='receive' bindtap='receive'>立即领取</button> -->
     </view>
   </view>
 </view>

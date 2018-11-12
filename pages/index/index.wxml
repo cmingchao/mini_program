@@ -2,18 +2,21 @@
   <view id='box'>
     <view class='search-wrap flex bg-white'>
       <image src='/images/sousuo.png'></image>
-      <input name='shopName' value='{{shopName}}' placeholder='输入商户名找优惠' bindinput='inputShopName'></input>
+      <input name='name' value='{{name}}' placeholder='输入商户名找优惠' bindinput='inputName'></input>
     </view>
     <scroll-view scroll-x="true" class="tab-h bg-white'" scroll-left="{{scrollLeft}}">
-      <view class="tab-item {{currentTab==index?'active':''}}" data-current='{{index}}' bindtap="swichNav" wx:for='{{navList}}' wx:key='{{index}}'>{{item}}</view>
+      <view class="tab-item {{currentTab==index?'active':''}}" data-current='{{index}}' data-id='{{item.value}}' bindtap="swichNav" wx:for='{{navList}}' wx:key='{{index}}'>{{item.label}}</view>
     </scroll-view>
     <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{height}}rpx">
-      <swiper-item wx:for="{{navList}}" wx:key='{{index}}'>
+      <swiper-item wx:for="{{navList}}" item-id='{{item.value}}' wx:key='{{index}}'>
         <scroll-view scroll-y="true" class="scoll-h">
           <view class='list-wrap'>
-            <block wx:for="{{list}}" wx:key="{{index}}">
-              <ticketItem res='{{item}}' wx:if='{{currentTab===0}}' url='index'></ticketItem>
-              <shopItem res='{{item}}' index='{{index}}' wx:else></shopItem>
+            <block wx:for="{{list}}" wx:key="{{index}}" wx:if='{{list.length}}'>
+              <ticketItem res='{{item}}' url='index' wx:if='{{currentTab===0}}'></ticketItem>
+              <shopItem res='{{item}}' wx:else></shopItem>
+            </block>
+            <block wx:if='{{!list.length}}'>
+              <view class='noData text-center'>oh，暂无数据！</view>
             </block>
           </view>
         </scroll-view>

@@ -23,8 +23,7 @@
     </view>
     <view class='recommend'>
       <view class='title'>— 为您推荐 —</view>
-      <ticketItem></ticketItem>
-      <ticketItem></ticketItem>
+      <ticketItem wx:for='{{list}}' res='{{item}}' wx:key='{{index}}'></ticketItem>
     </view>
   </view>
 </view>
